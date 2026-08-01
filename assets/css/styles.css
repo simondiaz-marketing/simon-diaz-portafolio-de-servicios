@@ -1601,12 +1601,35 @@ footer {
     opacity: 0.4;
 }
 
-/* Scroll Reveal Animations - Visible by default for instant rendering */
-.scroll-reveal {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    transition: opacity 0.5s ease, transform 0.5s ease;
+/* Client Experience & Case Cards */
+.client-case-card {
+    background: rgba(12, 16, 28, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 2rem 1.6rem;
+    transition: all 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
+.client-case-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 242, 255, 0.35);
+    box-shadow: 0 15px 35px -10px rgba(0, 242, 255, 0.2);
+}
+
+.client-tag {
+    display: inline-block;
+    padding: 0.25rem 0.8rem;
+    border-radius: 50px;
+    background: rgba(0, 242, 255, 0.1);
+    color: var(--accent-primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+
 
 
 
