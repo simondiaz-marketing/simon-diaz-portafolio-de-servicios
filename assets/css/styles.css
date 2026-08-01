@@ -1552,4 +1552,66 @@ footer {
     transition: max-height 0.5s ease-in-out, padding 0.35s ease;
 }
 
+/* ==========================================================================
+   Scroll Contrast & Visual Reveal Block Styling
+   ========================================================================== */
+.landing-block {
+    position: relative;
+    padding: 4.5rem 2.5rem;
+    border-radius: 28px;
+    margin-bottom: 5.5rem;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+    .landing-block {
+        padding: 2.5rem 1.2rem;
+    }
+}
+
+.landing-block-cyan {
+    background: linear-gradient(180deg, rgba(0, 242, 255, 0.05) 0%, rgba(12, 16, 28, 0.88) 100%);
+    border: 1px solid rgba(0, 242, 255, 0.25);
+    box-shadow: 0 25px 70px -15px rgba(0, 242, 255, 0.15);
+}
+
+.landing-block-purple {
+    background: linear-gradient(180deg, rgba(168, 85, 247, 0.06) 0%, rgba(10, 12, 22, 0.92) 100%);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    box-shadow: 0 25px 70px -15px rgba(168, 85, 247, 0.18);
+}
+
+.landing-block-emerald {
+    background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(12, 18, 24, 0.88) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    box-shadow: 0 25px 70px -15px rgba(16, 185, 129, 0.15);
+}
+
+.landing-block-amber {
+    background: linear-gradient(180deg, rgba(245, 158, 11, 0.06) 0%, rgba(15, 18, 26, 0.92) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    box-shadow: 0 25px 70px -15px rgba(245, 158, 11, 0.15);
+}
+
+.section-divider-glow {
+    height: 1px;
+    width: 85%;
+    margin: 0 auto 5.5rem auto;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 242, 255, 0.6) 50%, transparent 100%);
+    opacity: 0.4;
+}
+
+/* Scroll Reveal Animations */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 
