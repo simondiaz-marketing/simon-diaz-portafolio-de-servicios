@@ -47,7 +47,7 @@ export default async function handler(req, res) {
         const minutes = minutesMatch ? parseInt(minutesMatch[1]) : 0;
         const seconds = secondsMatch ? parseInt(secondsMatch[1]) : 0;
         const totalSeconds = (minutes * 60) + seconds;
-        return totalSeconds < 60; // Filtrar solo contenidos verticales muy cortos (< 1 min)
+        return totalSeconds < 120; // Filtrar videos de formato corto (menos de 2 minutos / 120 segundos)
       };
 
       const videos = detailsData.items.filter(video => {
