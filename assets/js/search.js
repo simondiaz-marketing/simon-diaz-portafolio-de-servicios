@@ -6,7 +6,7 @@ export class SearchManager {
         this.closeBtn = document.getElementById('close-search');
         this.navBtn = document.getElementById('search-nav-btn');
         this.blogBtn = document.getElementById('search-blog-btn');
-        this.blogPosts = [];
+        this.services = [];
         this.youtubeVideos = [];
 
         this.init();
@@ -15,8 +15,8 @@ export class SearchManager {
     async init() {
         if (!this.overlay) return;
 
-        // Fetch academic posts using relative path fallbacks for local file access
-        this.blogPosts = await this.fetchRelativeJson('academic-posts.json') || [];
+        // Fetch services using relative path fallbacks for local file access
+        this.services = await this.fetchRelativeJson('services.json') || [];
 
         // Try to get videos from the YouTube global state if available
         this.getYouTubeVideos();
@@ -71,7 +71,7 @@ export class SearchManager {
                 if (title && url) {
                     this.youtubeVideos.push({
                         title,
-                        description: 'Video Tutorial',
+                        description: 'Video Tutorial / Muestra Audiovisual',
                         url,
                         badge: 'Video'
                     });
@@ -82,7 +82,7 @@ export class SearchManager {
             if (videos) {
                 this.youtubeVideos = videos.map(video => ({
                     title: video.title,
-                    description: 'Video Tutorial',
+                    description: 'Video Tutorial / Muestra Audiovisual',
                     url: video.url || `https://www.youtube.com/watch?v=${video.id}`,
                     badge: 'Video'
                 })).slice(0, 15);
@@ -113,12 +113,16 @@ export class SearchManager {
             return;
         }
 
-        const allItems = [...this.blogPosts, ...this.youtubeVideos];
+        const allItems = [...this.services, ...this.youtubeVideos];
 
-        const filtered = allItems.filter(item => 
-            item.title.toLowerCase().includes(query) || 
-            (item.description && item.description.toLowerCase().includes(query))
-        );
+        const filtered = allItems.filter(item => {
+            const desc = item.shortDescription || item.description || '';
+            const title = item.title || '';
+            const category = item.category || '';
+            return title.toLowerCase().includes(query) || 
+                   desc.toLowerCase().includes(query) ||
+                   category.toLowerCase().includes(query);
+        });
 
         this.renderResults(filtered);
     }
@@ -127,7 +131,7 @@ export class SearchManager {
         this.resultsContainer.innerHTML = '';
 
         if (results.length === 0) {
-            this.resultsContainer.innerHTML = '<p style="text-align:center; color:var(--text-dim);">No se encontraron resultados.</p>';
+            this.resultsContainer.innerHTML = '<p style="text-align:center; color:var(--text-dim);">No se encontraron servicios ni contenidos.</p>';
             return;
         }
 
@@ -137,12 +141,6 @@ export class SearchManager {
             let finalUrl = item.url;
             if (!item.url.startsWith('http')) {
                 let cleanUrl = item.url.startsWith('/') ? item.url.slice(1) : item.url;
-                if (!cleanUrl.endsWith('.html') && !cleanUrl.endsWith('/')) {
-                    cleanUrl += '/index.html';
-                } else if (cleanUrl.endsWith('/')) {
-                    cleanUrl += 'index.html';
-                }
-                
                 let prefix = "";
                 const indexLink = document.querySelector('nav a[href*="index.html"]');
                 if (indexLink) {
@@ -162,9 +160,9 @@ export class SearchManager {
             resultItem.className = 'search-result-item';
             
             resultItem.innerHTML = `
-                <div class="badge">${item.badge || 'Académico'}</div>
+                <div class="badge">${item.badge || 'Servicio'}</div>
                 <h4>${item.title}</h4>
-                <p>${item.description}</p>
+                <p>${item.shortDescription || item.description || ''}</p>
             `;
 
             this.resultsContainer.appendChild(resultItem);
