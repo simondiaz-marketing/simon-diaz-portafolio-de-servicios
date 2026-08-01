@@ -1,0 +1,17 @@
+# Scripts de despliegue local
+*.ps1
+
+# Guías y notas personales/locales
+GUIA_DEPLOY.md
+GUIA_ESTRUCTURA_CARPETAS.txt
+GUIA_INICIO_DESDE_CERO.md
+PLANTILLA_ARTICULO.html
+
+# Directorios de agentes / IA (opcional, por si acaso)
+.agents/
+
+# Archivos del sistema y de editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
