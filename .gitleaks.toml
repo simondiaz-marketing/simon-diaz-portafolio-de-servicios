@@ -1,0 +1,48 @@
+# Gitleaks Configuration File for Secret Detection
+title = "Gitleaks Security Configuration"
+
+[allowlist]
+description = "Global allowlist for build artifacts and external packages"
+paths = [
+    '''node_modules''',
+    '''\.git''',
+    '''\.brief''',
+    '''package-lock\.json'''
+]
+
+[[rules]]
+id = "aws-access-key-id"
+description = "Identified an AWS Access Key ID"
+regex = '''(?i)(aws_access_key_id|aws_key_id|aws_key)\s*[:=]\s*['"]?(AKIA[0-9A-Z]{16})['"]?'''
+secretGroup = 2
+
+[[rules]]
+id = "github-pat"
+description = "Identified a GitHub Personal Access Token"
+regex = '''ghp_[0-9a-zA-Z]{36}|github_pat_[0-9a-zA-Z_]{82}'''
+
+[[rules]]
+id = "generic-api-key"
+description = "Identified a Generic API Key or Secret"
+regex = '''(?i)(api[_-]?key|secret[_-]?key|access[_-]?token|auth[_-]?token)\s*[:=]\s*['"]([0-9a-zA-Z_\-]{16,64})['"]'''
+secretGroup = 2
+
+[[rules]]
+id = "private-key"
+description = "Identified an RSA / SSH / OpenSSL Private Key"
+regex = '''-----BEGIN (RSA|DSA|EC|OPENSSH|PRIVATE) KEY-----'''
+
+[[rules]]
+id = "openai-api-key"
+description = "Identified an OpenAI API Key"
+regex = '''sk-[a-zA-Z0-9]{32,64}'''
+
+[[rules]]
+id = "stripe-api-key"
+description = "Identified a Stripe API Key"
+regex = '''sk_live_[0-9a-zA-Z]{24}'''
+
+[[rules]]
+id = "jwt-token"
+description = "Identified a JSON Web Token (JWT)"
+regex = '''eyJ[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*'''
