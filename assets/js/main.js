@@ -310,11 +310,9 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+// Ensure sections are visible by default
 document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(50px)';
-    section.style.transition = 'all 1s ease-out';
-    observer.observe(section);
+    section.style.opacity = '1';
 });
 
 // Secure Email Decryption (Anti-Spam)
