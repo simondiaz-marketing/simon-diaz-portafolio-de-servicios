@@ -1420,3 +1420,136 @@ footer {
     opacity: 0.3;
 }
 
+/* ==========================================================================
+   Landing Page Components - Servicios (FAQ, Tech Stack, Retainers)
+   ========================================================================== */
+
+/* Tech Stack Items */
+.tech-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1.4rem;
+    background: rgba(15, 20, 32, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.tech-pill:hover {
+    background: rgba(20, 26, 42, 0.9);
+    border-color: rgba(0, 242, 255, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 242, 255, 0.15);
+}
+
+.tech-pill-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Package / Tier Cards */
+.package-tier-card {
+    background: rgba(12, 16, 28, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2.5rem 1.8rem;
+    position: relative;
+    transition: all 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.package-tier-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--tier-accent, var(--accent-primary));
+    box-shadow: 0 15px 35px -10px var(--tier-glow, rgba(0, 242, 255, 0.2));
+}
+
+.package-tier-card.featured {
+    border-color: var(--accent-primary);
+    background: linear-gradient(180deg, rgba(0, 51, 102, 0.4) 0%, rgba(12, 16, 28, 0.8) 100%);
+    box-shadow: 0 10px 30px rgba(0, 242, 255, 0.15);
+}
+
+.package-tier-badge {
+    position: absolute;
+    top: -14px;
+    right: 20px;
+    padding: 0.3rem 1rem;
+    background: var(--accent-primary);
+    color: #050505;
+    font-weight: 800;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* FAQ Accordion */
+.faq-item {
+    background: rgba(12, 16, 28, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.faq-item:hover, .faq-item.active {
+    border-color: rgba(0, 242, 255, 0.35);
+}
+
+.faq-question {
+    width: 100%;
+    padding: 1.3rem 1.5rem;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-family: inherit;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    gap: 1rem;
+}
+
+.faq-question svg {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-question svg {
+    transform: rotate(180deg);
+    stroke: var(--accent-primary);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0, 1, 0, 1), padding 0.35s ease;
+    padding: 0 1.5rem;
+    color: var(--text-dim);
+    font-size: 0.96rem;
+    line-height: 1.7;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 0 1.5rem 1.4rem 1.5rem;
+    transition: max-height 0.5s ease-in-out, padding 0.35s ease;
+}
+
+
