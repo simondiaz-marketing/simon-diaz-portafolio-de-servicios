@@ -1,6 +1,10 @@
 # Scripts de despliegue local
 *.ps1
 
+# Archivos de configuración local / servidor
+vercel.json
+sitemap*.xml
+
 # Directorios de agentes / IA
 .agents/
 
