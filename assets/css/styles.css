@@ -1,6 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --bg-dark: #07090e;
+    --bg-card: rgba(12, 16, 28, 0.85);
+    --accent-magenta: #d946ef;
+    --accent-purple: #a855f7;
+    --accent-cyan: #00f2ff;
+    --accent-emerald: #10b981;
+    --accent-amber: #f59e0b;
+    --text-main: #ffffff;
+    --text-dim: rgba(255, 255, 255, 0.72);
     --bg-color: #050505;
     --card-bg: rgba(255, 255, 255, 0.05);
     --accent-primary: #00f2ff;
@@ -1816,6 +1827,107 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================================
+   Signature Component: Interactive Meta Ads + Bot Simulator
+   ========================================================================== */
+.bot-simulator-box {
+    background: #090c15;
+    border: 1px solid rgba(217, 70, 239, 0.4);
+    border-radius: 20px;
+    padding: 1.8rem;
+    box-shadow: 0 15px 45px rgba(217, 70, 239, 0.2);
+    margin: 2.5rem auto 0;
+    max-width: 680px;
+}
+
+.bot-sim-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.2rem;
+}
+
+.bot-sim-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #10b981;
+}
+
+.bot-sim-status::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 10px #10b981;
+}
+
+.chat-messages-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-height: 180px;
+    max-height: 240px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.chat-bubble {
+    padding: 0.8rem 1.1rem;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 82%;
+    word-break: break-word;
+}
+
+.chat-bubble.bot {
+    background: rgba(217, 70, 239, 0.15);
+    border: 1px solid rgba(217, 70, 239, 0.3);
+    color: #ffffff;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.chat-bubble.user {
+    background: rgba(0, 242, 255, 0.18);
+    border: 1px solid rgba(0, 242, 255, 0.35);
+    color: #ffffff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.sim-quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.sim-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(217, 70, 239, 0.3);
+    color: #d946ef;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sim-btn:hover {
+    background: #d946ef;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(217, 70, 239, 0.5);
+}
+
 
 
 
