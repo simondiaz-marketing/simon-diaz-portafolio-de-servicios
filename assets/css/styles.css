@@ -1268,3 +1268,155 @@ footer {
         margin-bottom: 0;
     }
 }
+
+/* ==========================================================================
+   Rediseño Premium - Sección Servicios
+   ========================================================================== */
+.service-card-premium {
+    background: rgba(12, 16, 28, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 20px !important;
+    padding: 2.2rem 1.8rem !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+.service-card-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--card-theme, var(--accent-primary));
+    opacity: 0.8;
+    transition: height 0.3s ease;
+}
+
+.service-card-premium:hover {
+    transform: translateY(-8px) !important;
+    border-color: var(--card-theme-glow, rgba(0, 242, 255, 0.4)) !important;
+    box-shadow: 0 20px 45px -10px var(--card-theme-shadow, rgba(0, 242, 255, 0.25)) !important;
+}
+
+.service-card-premium:hover::before {
+    height: 5px;
+}
+
+.service-badge-pill {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+}
+
+.service-icon-box {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card-premium:hover .service-icon-box {
+    transform: scale(1.1) rotate(3deg);
+}
+
+.service-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 2rem 0;
+}
+
+.service-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-dim);
+    font-size: 0.94rem;
+    line-height: 1.5;
+}
+
+.service-feature-item svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+}
+
+.service-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 0.95rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Method Roadmap Steps */
+.method-card {
+    background: rgba(15, 20, 32, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.method-card:hover {
+    background: rgba(20, 26, 42, 0.85);
+    border-color: rgba(0, 242, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+.method-num {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 0 auto 1.2rem;
+    position: relative;
+}
+
+.method-num::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px stroke currentColor;
+    opacity: 0.3;
+}
+
