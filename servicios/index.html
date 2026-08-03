@@ -1,37 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios Profesionales | Simón Diaz | Marketing Digital & Consultoría TIC</title>
-    <meta name="description" content="Landing de Servicios Profesionales de Simón Diaz: Estrategia Digital, Meta Ads con Automatización, Edición Audiovisual e Inteligencia Artificial Generativa.">
-    
-    <!-- Open Graph / Facebook -->
+    <title>Servicios Profesionales | Simón Diaz | Marketing y Redes Sociales</title>
+    <meta name="description" content="Servicios profesionales de Simón Diaz orientados a Estrategias Digitales">
+
     <meta property="og:type" content="website">
     <meta property="og:title" content="Servicios Profesionales | Simón Diaz">
-    <meta property="og:description" content="Soluciones de comunicación digital, Meta Ads automatizados, producción audiovisual y consultoría TIC.">
+    <meta property="og:description" content="Soluciones de comunicación digital, producción audiovisual y Marketing.">
     <meta property="og:image" content="../assets/img/perfil.jpg">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Servicios Profesionales | Simón Diaz">
-    <meta property="twitter:description" content="Soluciones de comunicación digital, Meta Ads automatizados, producción audiovisual y consultoría TIC.">
-    <meta property="twitter:image" content="../assets/img/perfil.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Servicios Profesionales | Simón Diaz">
+    <meta name="twitter:description"
+        content="Soluciones de comunicación digital, producción audiovisual y consultoría TIC.">
+    <meta name="twitter:image" content="../assets/img/perfil.jpg">
 
-    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <!-- Fonts loaded via shared styles.css -->
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
+
 <body>
     <div id="canvas-container"></div>
-    
+
     <nav>
         <div class="container nav-container">
-            <div class="logo">SIMÓN DIAZ</div>
+            <a href="../index.html" class="logo">Simón<span>.</span>Diaz</a>
             <ul class="nav-links">
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="../sobre-mi/index.html">Sobre Mí</a></li>
@@ -40,7 +37,8 @@
                 <li><a href="../contacto/index.html">Contacto</a></li>
                 <li class="search-trigger-nav">
                     <a href="javascript:void(0)" id="search-nav-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="11" cy="11" r="8"></circle>
                             <path d="m21 21-4.3-4.3"></path>
                         </svg>
@@ -57,518 +55,735 @@
                 <input type="text" id="search-input" placeholder="Buscar servicios o videos..." autocomplete="off">
                 <button id="close-search">&times;</button>
             </div>
-            <div id="search-results" class="search-results">
-                <!-- Dynamic results here -->
-            </div>
+            <div id="search-results" class="search-results"></div>
         </div>
     </div>
 
-    <!-- Main Landing Container (Estructura Orgánica & Humana) -->
-    <section id="servicios-landing" style="padding-top: 7.5rem; padding-bottom: 6rem;">
+    <!-- ============================================================
+         SECCIÓN 1 — HERO (solo texto, sin foto)
+         ============================================================ -->
+    <section id="servicios-landing"
+        style="padding-top: 7.5rem; padding-bottom: 4rem; border-bottom: 1px solid var(--color-border);">
         <div class="container">
-            
-            <!-- HERO HEADER -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center; margin-bottom: 4.5rem;">
-                <div>
-                    <div style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.35rem 1.1rem; border-radius: 50px; background: rgba(0, 242, 255, 0.1); border: 1px solid rgba(0, 242, 255, 0.25); color: #00f2ff; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.2rem;">
-                        SIMÓN DIAZ | COMUNICACIÓN DIGITAL & IA
-                    </div>
-                    <h1 style="font-size: 3.1rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; color: #ffffff;">
-                        Servicios de Marketing Digital & Soluciones Tecnológicas
-                    </h1>
-                    <p style="font-size: 1.1rem; color: var(--text-dim); line-height: 1.7; margin-bottom: 2rem;">
-                        Estrategia integral de contenidos, producción de video profesional, campañas en Meta Ads con respuestas automatizadas e integración de herramientas de Inteligencia Artificial.
-                    </p>
+            <span class="service-badge">Simón Diaz · Comunicación Digital & IA</span>
+            <h1 style="margin-top: 1.2rem; margin-bottom: 1.2rem; max-width: 820px;">
+                Servicios de Marketing Digital<br>
+                <em>y Redes Sociales</em>
+            </h1>
+            <p
+                style="font-size: 1.1rem; color: var(--color-stone); line-height: 1.7; margin-bottom: 2.5rem; max-width: 680px;">
+                Gestionamos de forma integral la presencia de tu marca en redes sociales: estrategia, contenidos,
+                publicación, análisis y publicidad digital, incorporando herramientas de Inteligencia Artificial para
+                optimizar cada proceso.
 
-                    <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center;">
-                        <a href="#contacto-directo" class="btn-neon-magenta">
-                            <span>Solicitar Propuesta & Cotizar</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        </a>
-                        <a href="#lo-que-vas-a-lograr" style="color: rgba(255, 255, 255, 0.85); font-size: 0.95rem; font-weight: 700; text-decoration: none; padding: 0.8rem 1rem;">
-                            Explorar áreas de trabajo &darr;
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Hero Profile Frame -->
-                <div style="position: relative;">
-                    <div style="position: relative; border-radius: 20px; overflow: hidden; border: 1px solid rgba(0, 242, 255, 0.25); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); background: #0c101c;">
-                        <img src="../assets/img/perfil.jpg" alt="Simón Diaz" style="width: 100%; height: 400px; object-fit: cover; display: block;">
-                        <div style="position: absolute; bottom: 0; inset-x: 0; background: linear-gradient(0deg, #07090e 30%, transparent 100%); padding: 1.5rem 1.5rem 1.2rem;">
-                            <span style="font-size: 0.78rem; font-weight: 800; color: #00f2ff; text-transform: uppercase; letter-spacing: 1px;">TU ESTRATEGA DIGITAL</span>
-                            <h3 style="font-size: 1.35rem; color: #fff; margin: 0.2rem 0;">Simón Diaz</h3>
-                            <p style="font-size: 0.85rem; color: var(--text-dim); margin: 0;">Especialista en Comunicación Digital, Video e IA Aplicada</p>
-                        </div>
-                    </div>
-                </div>
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+                <a href="#contacto-directo" class="cta-button" style="margin-top: 0;">
+                    Solicitar propuesta →
+                </a>
+                <a href="#servicios-cards"
+                    style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-stone); text-decoration: none; letter-spacing: 0.5px; padding: 0.5rem 0.8rem; transition: color 0.2s;"
+                    onmouseover="this.style.color='var(--color-lime)'"
+                    onmouseout="this.style.color='var(--color-stone)'">
+                    Explorar servicios ↓
+                </a>
             </div>
+        </div>
+    </section>
 
-            <!-- BLOQUE DE METODOLOGÍA Y PROPÓSITO -->
+    <!-- ============================================================
+         SECCIÓN 2 — METODOLOGÍA
+         ============================================================ -->
+    <section style="padding: 5rem 0; background: rgba(17,21,25,0.5);">
+        <div class="container">
             <div class="transformation-box">
-                <div style="font-size: 0.8rem; font-weight: 800; color: #00f2ff; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem;">METODOLOGÍA DE TRABAJO</div>
-                <h2 style="font-size: 2.2rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">
-                    Comunicación estratégica orientada a resultados reales
+                <div
+                    style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--color-lime); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.8rem;">
+                    Metodología de trabajo</div>
+                <h2 style="margin-bottom: 1rem; text-align: left;">
+                    Comunicación estratégica<br>
+                    <em>orientada a resultados</em>
                 </h2>
-                <p style="max-width: 780px; margin: 0 auto; font-size: 1.05rem; color: var(--text-dim); line-height: 1.7;">
-                    Analizamos las necesidades de tu marca para diseñar un plan a medida: creación de contenidos visuales de alta calidad, configuración de <strong>campañas en Meta Ads con respuestas automatizadas 24/7</strong> e integración de tecnologías cloud para tu equipo.
+                <p style="max-width: 720px; font-size: 1.05rem; color: var(--color-stone); line-height: 1.8;">
+                    <!-- EDITAR: Reemplazá este párrafo con tu descripción de metodología de trabajo. 
+                         Ejemplo: cómo analizás las necesidades del cliente, qué proceso seguís, 
+                         qué herramientas usás, qué diferencia tu enfoque. -->
+                    Analizamos las necesidades de tu marca para diseñar un plan a medida: creación de contenidos
+                    visuales de alta calidad, configuración de <strong style="color: var(--color-white);">campañas en
+                        Meta Ads con respuestas automatizadas 24/7</strong> e integración de tecnologías cloud para tu
+                    equipo.
                 </p>
             </div>
+        </div>
+    </section>
 
-            <!-- SECCIÓN 1: ÁREAS DE TRABAJO & SOLUCIONES -->
-            <div id="lo-que-vas-a-lograr" class="landing-block landing-block-purple" style="scroll-margin-top: 6rem;">
-                <div style="text-align: center; margin-bottom: 3.5rem;">
-                    <div style="display: inline-block; padding: 0.35rem 1.2rem; border-radius: 50px; background: rgba(0, 242, 255, 0.1); color: #00f2ff; border: 1px solid rgba(0, 242, 255, 0.25); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem;">
-                        ÁREAS DE ACCIÓN
-                    </div>
-                    <h2 style="font-size: 2.3rem; font-weight: 800; color: #ffffff;">Servicios & Líneas de Trabajo</h2>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.8rem;">
-                    
-                    <!-- Módulo 1 -->
-                    <div class="service-card-premium" style="--card-theme: #00f2ff; --card-theme-glow: rgba(0, 242, 255, 0.3); --card-theme-shadow: rgba(0, 242, 255, 0.15);">
-                        <div class="service-icon-box" style="background: rgba(0, 242, 255, 0.12); color: #00f2ff;">🚀</div>
-                        <h3 style="font-size: 1.35rem; color: #fff; margin-bottom: 0.8rem;">Estrategia & Contenidos</h3>
-                        <p style="color: var(--text-dim); font-size: 0.92rem; line-height: 1.65;">
-                            Planificación de calendario editorial, redacción de copys persuasivos y diseño de piezas visuales para redes sociales.
-                        </p>
-                    </div>
-
-                    <!-- Módulo 2 -->
-                    <div class="service-card-premium" style="--card-theme: #a855f7; --card-theme-glow: rgba(168, 85, 247, 0.3); --card-theme-shadow: rgba(168, 85, 247, 0.15);">
-                        <div class="service-icon-box" style="background: rgba(168, 85, 247, 0.12); color: #a855f7;">🎯</div>
-                        <h3 style="font-size: 1.35rem; color: #fff; margin-bottom: 0.8rem;">Meta Ads + Automatización</h3>
-                        <p style="color: var(--text-dim); font-size: 0.92rem; line-height: 1.65;">
-                            Configuración de anuncios orientados a conversión conectados a respuestas automáticas en comentarios y mensajes privados 24/7.
-                        </p>
-                    </div>
-
-                    <!-- Módulo 3 -->
-                    <div class="service-card-premium" style="--card-theme: #10b981; --card-theme-glow: rgba(16, 185, 129, 0.3); --card-theme-shadow: rgba(16, 185, 129, 0.15);">
-                        <div class="service-icon-box" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">🎬</div>
-                        <h3 style="font-size: 1.35rem; color: #fff; margin-bottom: 0.8rem;">Producción & Edición Video</h3>
-                        <p style="color: var(--text-dim); font-size: 0.92rem; line-height: 1.65;">
-                            Edición dinámica en CapCut/Premiere de Reels, Shorts, videos promocionales y videopodcasts con subtitulado profesional.
-                        </p>
-                    </div>
-
-                    <!-- Módulo 4 -->
-                    <div class="service-card-premium" style="--card-theme: #f59e0b; --card-theme-glow: rgba(245, 158, 11, 0.3); --card-theme-shadow: rgba(245, 158, 11, 0.15);">
-                        <div class="service-icon-box" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b;">🤖</div>
-                        <h3 style="font-size: 1.35rem; color: #fff; margin-bottom: 0.8rem;">Consultoría TIC & IA</h3>
-                        <p style="color: var(--text-dim); font-size: 0.92rem; line-height: 1.65;">
-                            Adopción práctica de Inteligencia Artificial (ChatGPT, NotebookLM), automatización de tareas y capacitaciones para equipos.
-                        </p>
-                    </div>
-
-                </div>
-
-                <!-- COMPONENTE INTERACTIVO LIMPIO: Ejemplo Práctico de Automatización -->
-                <div class="bot-simulator-box">
-                    <div class="bot-sim-header">
-                        <div style="font-size: 0.88rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 0.6rem;">
-                            <span>🤖 Ejemplo Práctico: Respuesta Automática Meta Ads</span>
-                        </div>
-                        <div class="bot-sim-status">Respuesta Activa</div>
-                    </div>
-
-                    <div id="sim-chat-body" class="chat-messages-body">
-                        <div class="chat-bubble bot">
-                            Hola 👋 Soy la respuesta automática configurada para los anuncios de Simón Diaz. Haz clic abajo para probar una interacción:
-                        </div>
-                    </div>
-
-                    <div style="font-size: 0.78rem; color: var(--text-dim); margin-bottom: 0.6rem; font-weight: 700;">HAZ CLIC PARA SIMULAR UNA CONSULTA:</div>
-                    <div class="sim-quick-actions">
-                        <button type="button" class="sim-btn" onclick="triggerSimBot('precios')">💡 Consultar Presupuesto</button>
-                        <button type="button" class="sim-btn" onclick="triggerSimBot('meta')">🎯 Ver Funcionamiento de Ads</button>
-                        <button type="button" class="sim-btn" onclick="triggerSimBot('video')">🎬 Ver Servicios Audiovisuales</button>
-                        <button type="button" class="sim-btn" onclick="triggerSimBot('humano')">📲 Contactar a Simón por WhatsApp</button>
-                    </div>
-                </div>
-
+    <!-- ============================================================
+         SECCIÓN 3 — 6 CARDS DE SERVICIOS
+         ✏️ EDITAR: Reemplazá cada card con tu servicio real.
+         ============================================================ -->
+    <section id="servicios-cards" style="padding: 6rem 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <span class="service-badge" style="margin-bottom: 0.8rem;">Áreas de acción</span>
+                <h2 style="margin-top: 0.8rem;">Servicios & Líneas de Trabajo</h2>
             </div>
 
-            <div class="section-divider-glow"></div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem;">
 
-            <!-- SECCIÓN 2: PERFIL IDEAL DE CLIENTE -->
-            <div id="para-quien" class="landing-block landing-block-cyan" style="scroll-margin-top: 6rem;">
-                <div style="text-align: center; margin-bottom: 3.5rem;">
-                    <div style="display: inline-block; padding: 0.35rem 1.2rem; border-radius: 50px; background: rgba(0, 242, 255, 0.1); color: #00f2ff; border: 1px solid rgba(0, 242, 255, 0.25); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem;">
-                        PERFIL IDEAL
+                <!-- ✏️ CARD 1 — Editá el título, descripción e ícono -->
+                <div class="service-card-premium"
+                    style="--card-theme: var(--color-lime); --card-theme-glow: rgba(126,232,162,0.3); --card-theme-shadow: rgba(126,232,162,0.12);">
+                    <div>
+                        <div class="service-icon-box"
+                            style="background: rgba(126,232,162,0.1); color: var(--color-lime); font-size: 1.5rem;">📱
+                        </div>
+                        <!-- ✏️ TÍTULO DEL SERVICIO 1 -->
+                        <h3
+                            style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--color-white); margin-bottom: 0.8rem;">
+                            Estrategia & Contenidos</h3>
+                        <!-- ✏️ DESCRIPCIÓN DEL SERVICIO 1 -->
+                        <p style="color: var(--color-stone); font-size: 0.92rem; line-height: 1.65;">
+                            Planificación de calendario editorial, redacción de copys persuasivos y diseño de piezas
+                            visuales para redes sociales.
+                        </p>
                     </div>
-                    <h2 style="font-size: 2.3rem; font-weight: 800; color: #ffffff;">¿Para quién es este servicio?</h2>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.8rem; margin-bottom: 3rem;">
-                    <div style="padding: 1.8rem; background: rgba(12, 16, 28, 0.8); border-top: 3px solid #00f2ff; border-radius: 14px; text-align: center;">
-                        <h4 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">Pymes & Distribuidoras</h4>
-                        <p style="color: var(--text-dim); font-size: 0.88rem; line-height: 1.6; margin: 0;">Que buscan aumentar sus ventas y agilizar la atención a clientes.</p>
-                    </div>
-
-                    <div style="padding: 1.8rem; background: rgba(12, 16, 28, 0.8); border-top: 3px solid #a855f7; border-radius: 14px; text-align: center;">
-                        <h4 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">Creadores & Educadores</h4>
-                        <p style="color: var(--text-dim); font-size: 0.88rem; line-height: 1.6; margin: 0;">En busca de mayor alcance, edición audiovisual de calidad y podcasts.</p>
-                    </div>
-
-                    <div style="padding: 1.8rem; background: rgba(12, 16, 28, 0.8); border-top: 3px solid #10b981; border-radius: 14px; text-align: center;">
-                        <h4 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">Marcas Personales</h4>
-                        <p style="color: var(--text-dim); font-size: 0.88rem; line-height: 1.6; margin: 0;">Que desean transmitir una imagen coherente y profesional en sus canales.</p>
-                    </div>
-
-                    <div style="padding: 1.8rem; background: rgba(12, 16, 28, 0.8); border-top: 3px solid #f59e0b; border-radius: 14px; text-align: center;">
-                        <h4 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">Instituciones & Equipos</h4>
-                        <p style="color: var(--text-dim); font-size: 0.88rem; line-height: 1.6; margin: 0;">Que necesitan capacitación en Inteligencia Artificial y entornos TIC.</p>
-                    </div>
-                </div>
-
-                <div style="text-align: center;">
-                    <a href="#contacto-directo" class="btn-neon-magenta">
-                        <span>Solicitar Propuesta Personalizada</span>
+                    <a href="#contacto-directo" onclick="preselectService('Estrategia de Contenidos & Redes')"
+                        style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-lime); text-decoration: none; letter-spacing: 0.5px; transition: gap 0.2s;"
+                        onmouseover="this.style.gap='0.9rem'" onmouseout="this.style.gap='0.5rem'">
+                        Consultar servicio →
                     </a>
                 </div>
-            </div>
 
-            <div class="section-divider-glow"></div>
-
-            <!-- SECCIÓN 3: PERFIL PROFESIONAL Y EXPERIENCIA -->
-            <div id="sobre-el-estratega" class="profile-showcase-box" style="scroll-margin-top: 6rem;">
-                <div class="profile-showcase-grid">
-                    <div class="profile-avatar-wrapper">
-                        <img src="../assets/img/perfil.jpg" alt="Simón Diaz">
-                    </div>
-
+                <!-- ✏️ CARD 2 -->
+                <div class="service-card-premium"
+                    style="--card-theme: #a855f7; --card-theme-glow: rgba(168,85,247,0.3); --card-theme-shadow: rgba(168,85,247,0.12);">
                     <div>
-                        <div style="font-size: 0.8rem; font-weight: 800; color: #00f2ff; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem;">SOBRE MÍ</div>
-                        <h2 style="font-size: 2.3rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">
-                            Simón Diaz — Estratega Digital & TIC
-                        </h2>
-                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.02rem; line-height: 1.7; margin-bottom: 1.2rem;">
-                            Me dedico a la comunicación digital desde un enfoque integral, planificando contenidos y gestionando la presencia de marcas en plataformas digitales.
+                        <div class="service-icon-box"
+                            style="background: rgba(168,85,247,0.1); color: #a855f7; font-size: 1.5rem;">🎯</div>
+                        <!-- ✏️ TÍTULO DEL SERVICIO 2 -->
+                        <h3
+                            style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--color-white); margin-bottom: 0.8rem;">
+                            Meta Ads + Automatización</h3>
+                        <!-- ✏️ DESCRIPCIÓN DEL SERVICIO 2 -->
+                        <p style="color: var(--color-stone); font-size: 0.92rem; line-height: 1.65;">
+                            Configuración de anuncios orientados a conversión conectados a respuestas automáticas en
+                            comentarios y mensajes privados 24/7.
                         </p>
-                        <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.65; margin-bottom: 1.8rem;">
-                            Cuento con la <strong>Tecnicatura en Gestión de Recursos Digitales</strong> y especialización en <strong>Inteligencia Artificial y Automatizaciones (Fundación Alfa)</strong>.
-                        </p>
-
-                        <div style="display: flex; flex-wrap: wrap; gap: 1.8rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1.2rem;">
-                            <div>
-                                <h4 style="font-size: 1.6rem; font-weight: 800; color: #00f2ff; margin: 0;">+3 Años</h4>
-                                <span style="font-size: 0.85rem; color: var(--text-dim);">Experiencia Profesional</span>
-                            </div>
-                            <div>
-                                <h4 style="font-size: 1.6rem; font-weight: 800; color: #a855f7; margin: 0;">24/7</h4>
-                                <span style="font-size: 0.85rem; color: var(--text-dim);">Respuestas Automáticas</span>
-                            </div>
-                            <div>
-                                <h4 style="font-size: 1.6rem; font-weight: 800; color: #10b981; margin: 0;">+10</h4>
-                                <span style="font-size: 0.85rem; color: var(--text-dim);">Certificaciones TIC</span>
-                            </div>
-                        </div>
                     </div>
+                    <a href="#contacto-directo" onclick="preselectService('Meta Ads con Automatización')"
+                        style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: #a855f7; text-decoration: none; letter-spacing: 0.5px; transition: gap 0.2s;"
+                        onmouseover="this.style.gap='0.9rem'" onmouseout="this.style.gap='0.5rem'">
+                        Consultar servicio →
+                    </a>
                 </div>
 
-                <!-- Tira de Marcas Atendidas -->
-                <div class="client-logo-bar">
-                    <span style="font-size: 0.8rem; font-weight: 800; color: #00f2ff; text-transform: uppercase; letter-spacing: 1px;">MARCAS & PROYECTOS ATENDIDOS:</span>
-                    <div class="client-logo-item">📦 A&M Distribuidora</div>
-                    <div class="client-logo-item">💼 Consultora Grupo Kairos S.R.L</div>
-                    <div class="client-logo-item">🍯 Miel Thami</div>
-                    <div class="client-logo-item">🎓 Fundación Alfa</div>
-                    <div class="client-logo-item">📹 Simón Diaz (YouTube)</div>
+                <!-- ✏️ CARD 3 -->
+                <div class="service-card-premium"
+                    style="--card-theme: #10b981; --card-theme-glow: rgba(16,185,129,0.3); --card-theme-shadow: rgba(16,185,129,0.12);">
+                    <div>
+                        <div class="service-icon-box"
+                            style="background: rgba(16,185,129,0.1); color: #10b981; font-size: 1.5rem;">🎬</div>
+                        <!-- ✏️ TÍTULO DEL SERVICIO 3 -->
+                        <h3
+                            style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--color-white); margin-bottom: 0.8rem;">
+                            Producción & Edición Video</h3>
+                        <!-- ✏️ DESCRIPCIÓN DEL SERVICIO 3 -->
+                        <p style="color: var(--color-stone); font-size: 0.92rem; line-height: 1.65;">
+                            Edición dinámica en CapCut/Premiere de Reels, Shorts, videos promocionales y videopodcasts
+                            con subtitulado profesional.
+                        </p>
+                    </div>
+                    <a href="#contacto-directo" onclick="preselectService('Producción & Edición Audiovisual')"
+                        style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: #10b981; text-decoration: none; letter-spacing: 0.5px; transition: gap 0.2s;"
+                        onmouseover="this.style.gap='0.9rem'" onmouseout="this.style.gap='0.5rem'">
+                        Consultar servicio →
+                    </a>
                 </div>
+
+                <!-- ✏️ CARD 4 -->
+                <div class="service-card-premium"
+                    style="--card-theme: #f59e0b; --card-theme-glow: rgba(245,158,11,0.3); --card-theme-shadow: rgba(245,158,11,0.12);">
+                    <div>
+                        <div class="service-icon-box"
+                            style="background: rgba(245,158,11,0.1); color: #f59e0b; font-size: 1.5rem;">🤖</div>
+                        <!-- ✏️ TÍTULO DEL SERVICIO 4 -->
+                        <h3
+                            style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--color-white); margin-bottom: 0.8rem;">
+                            Consultoría TIC & IA</h3>
+                        <!-- ✏️ DESCRIPCIÓN DEL SERVICIO 4 -->
+                        <p style="color: var(--color-stone); font-size: 0.92rem; line-height: 1.65;">
+                            Adopción práctica de Inteligencia Artificial (ChatGPT, NotebookLM), automatización de tareas
+                            y capacitaciones para equipos.
+                        </p>
+                    </div>
+                    <a href="#contacto-directo" onclick="preselectService('Consultoría TIC & Formación en IA')"
+                        style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: #f59e0b; text-decoration: none; letter-spacing: 0.5px; transition: gap 0.2s;"
+                        onmouseover="this.style.gap='0.9rem'" onmouseout="this.style.gap='0.5rem'">
+                        Consultar servicio →
+                    </a>
+                </div>
+
+                <!-- ✏️ CARD 5 — Completá con tu 5to servicio -->
+                <div class="service-card-premium"
+                    style="--card-theme: #e879f9; --card-theme-glow: rgba(232,121,249,0.3); --card-theme-shadow: rgba(232,121,249,0.12);">
+                    <div>
+                        <div class="service-icon-box"
+                            style="background: rgba(232,121,249,0.1); color: #e879f9; font-size: 1.5rem;">🎓</div>
+                        <!-- ✏️ TÍTULO DEL SERVICIO 5 — Reemplazá este texto -->
+                        <h3
+                            style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--color-white); margin-bottom: 0.8rem;">
+                            Aquí va el título del servicio 5</h3>
+                        <!-- ✏️ DESCRIPCIÓN DEL SERVICIO 5 — Reemplazá este texto -->
+                        <p style="color: var(--color-stone); font-size: 0.92rem; line-height: 1.65;">
+                            Describí brevemente en qué consiste este servicio, qué problema resuelve y a quién va
+                            dirigido. Dos o tres oraciones es suficiente.
+                        </p>
+                    </div>
+                    <a href="#contacto-directo" onclick="preselectService('Asesoría 1 a 1')"
+                        style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: #e879f9; text-decoration: none; letter-spacing: 0.5px; transition: gap 0.2s;"
+                        onmouseover="this.style.gap='0.9rem'" onmouseout="this.style.gap='0.5rem'">
+                        Consultar servicio →
+                    </a>
+                </div>
+
+                <!-- ✏️ CARD 6 — Completá con tu 6to servicio -->
+                <div class="service-card-premium"
+                    style="--card-theme: #38bdf8; --card-theme-glow: rgba(56,189,248,0.3); --card-theme-shadow: rgba(56,189,248,0.12);">
+                    <div>
+                        <div class="service-icon-box"
+                            style="background: rgba(56,189,248,0.1); color: #38bdf8; font-size: 1.5rem;">📊</div>
+                        <!-- ✏️ TÍTULO DEL SERVICIO 6 — Reemplazá este texto -->
+                        <h3
+                            style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--color-white); margin-bottom: 0.8rem;">
+                            Aquí va el título del servicio 6</h3>
+                        <!-- ✏️ DESCRIPCIÓN DEL SERVICIO 6 — Reemplazá este texto -->
+                        <p style="color: var(--color-stone); font-size: 0.92rem; line-height: 1.65;">
+                            Describí brevemente en qué consiste este servicio, qué problema resuelve y a quién va
+                            dirigido. Dos o tres oraciones es suficiente.
+                        </p>
+                    </div>
+                    <a href="#contacto-directo" onclick="preselectService('Proyecto por Entregables')"
+                        style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: #38bdf8; text-decoration: none; letter-spacing: 0.5px; transition: gap 0.2s;"
+                        onmouseover="this.style.gap='0.9rem'" onmouseout="this.style.gap='0.5rem'">
+                        Consultar servicio →
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider-glow"></div>
+
+    <!-- ============================================================
+         SECCIÓN 4 — ¿PARA QUIÉN ES ESTE SERVICIO?
+         ============================================================ -->
+    <section id="para-quien" style="padding: 5rem 0; scroll-margin-top: 6rem;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <span class="service-badge" style="margin-bottom: 0.8rem;">Perfil ideal</span>
+                <h2 style="margin-top: 0.8rem;">¿Para quién es este servicio?</h2>
             </div>
 
-            <div class="section-divider-glow"></div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
 
-            <!-- SECCIÓN 4: MODALIDADES Y PRESUPUESTO -->
-            <div id="modalidades" style="scroll-margin-top: 6rem; margin-bottom: 4.5rem;">
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <div style="display: inline-block; padding: 0.35rem 1.2rem; border-radius: 50px; background: rgba(0, 242, 255, 0.1); color: #00f2ff; border: 1px solid rgba(0, 242, 255, 0.25); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem;">
-                        OPCIONES DE CONTRATACIÓN
-                    </div>
-                    <h2 style="font-size: 2.3rem; font-weight: 800; color: #ffffff;">Modalidades de Trabajo</h2>
+                <!-- ✏️ PERFIL 1 — Editá título y descripción -->
+                <div style="padding: 1.8rem; background: rgba(17,21,25,0.7); border-top: 3px solid var(--color-lime); border-left: 1px solid var(--color-border); border-right: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); border-radius: 4px 4px 12px 12px; text-align: center; transition: background 0.2s;"
+                    onmouseover="this.style.background='rgba(126,232,162,0.05)'"
+                    onmouseout="this.style.background='rgba(17,21,25,0.7)'">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.8rem;">🏪</div>
+                    <!-- ✏️ TÍTULO PERFIL 1 -->
+                    <h4
+                        style="font-family: var(--font-display); font-size: 1.05rem; font-weight: 400; color: var(--color-white); margin-bottom: 0.5rem;">
+                        Pymes & Distribuidoras</h4>
+                    <!-- ✏️ DESCRIPCIÓN PERFIL 1 -->
+                    <p style="color: var(--color-stone); font-size: 0.88rem; line-height: 1.6; margin: 0;">Que buscan
+                        aumentar sus ventas y agilizar la atención a clientes.</p>
                 </div>
 
-                <div class="central-pricing-container">
-                    
-                    <!-- Left Included Features List -->
-                    <div style="font-size: 0.9rem; color: var(--text-dim); line-height: 2.2;">
-                        <div style="display: flex; align-items: center; gap: 0.8rem; color: #fff; font-weight: 700; margin-bottom: 0.8rem;">
-                            <span style="color: #00f2ff;">⚡</span> Asesoría y diagnóstico inicial sin costo
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
-                            <span style="color: #00f2ff;">🎨</span> Planificación y diseño de piezas visuales
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
-                            <span style="color: #00f2ff;">🎬</span> Edición HD de video Reels & Shorts
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
-                            <span style="color: #00f2ff;">🎯</span> Meta Ads con respuestas automatizadas 24/7
-                        </div>
-                    </div>
-
-                    <!-- Center Prominent Pricing Card -->
-                    <div class="central-pricing-card">
-                        <div style="font-size: 0.78rem; font-weight: 800; color: #00f2ff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">PROYECTO O PLAN MENSUAL</div>
-                        <h3 style="font-size: 1.7rem; color: #fff; margin-bottom: 0.8rem;">Cotización A Medida</h3>
-                        
-                        <div style="margin: 1.2rem 0;">
-                            <span style="font-size: 2.5rem; font-weight: 800; color: #ffffff;">Presupuesto</span>
-                            <div style="font-size: 0.85rem; color: #00f2ff; font-weight: 700;">Sin cargos ocultos</div>
-                        </div>
-
-                        <a href="#contacto-directo" onclick="preselectService('Proyecto por Entregables')" class="btn-neon-magenta" style="width: 100%; box-sizing: border-box; margin-bottom: 1rem;">
-                            Solicitar Cotización Directa
-                        </a>
-
-                        <div style="font-size: 0.78rem; color: var(--text-dim); display: flex; align-items: center; justify-content: center; gap: 0.8rem;">
-                            <span>🔒 100% Confidencial</span>
-                            <span>⚡ Atención Inmediata</span>
-                        </div>
-                    </div>
-
-                    <!-- Right Extra Benefits List -->
-                    <div style="font-size: 0.9rem; color: var(--text-dim); line-height: 2.2;">
-                        <div style="display: flex; align-items: center; gap: 0.8rem; color: #fff; font-weight: 700; margin-bottom: 0.8rem;">
-                            <span style="color: #10b981;">📊</span> Reportes periódicos de interacción y rendimiento
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
-                            <span style="color: #10b981;">🤖</span> Adopción e integración de IA Generativa
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
-                            <span style="color: #10b981;">💬</span> Acompañamiento directo por WhatsApp
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
-                            <span style="color: #10b981;">🛡️</span> Garantía de satisfacción y 2 rondas de revisiones
-                        </div>
-                    </div>
-
+                <!-- ✏️ PERFIL 2 -->
+                <div style="padding: 1.8rem; background: rgba(17,21,25,0.7); border-top: 3px solid #a855f7; border-left: 1px solid var(--color-border); border-right: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); border-radius: 4px 4px 12px 12px; text-align: center; transition: background 0.2s;"
+                    onmouseover="this.style.background='rgba(168,85,247,0.05)'"
+                    onmouseout="this.style.background='rgba(17,21,25,0.7)'">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.8rem;">🎙️</div>
+                    <!-- ✏️ TÍTULO PERFIL 2 -->
+                    <h4
+                        style="font-family: var(--font-display); font-size: 1.05rem; font-weight: 400; color: var(--color-white); margin-bottom: 0.5rem;">
+                        Creadores & Educadores</h4>
+                    <!-- ✏️ DESCRIPCIÓN PERFIL 2 -->
+                    <p style="color: var(--color-stone); font-size: 0.88rem; line-height: 1.6; margin: 0;">En busca de
+                        mayor alcance, edición audiovisual de calidad y podcasts.</p>
                 </div>
+
+                <!-- ✏️ PERFIL 3 -->
+                <div style="padding: 1.8rem; background: rgba(17,21,25,0.7); border-top: 3px solid #10b981; border-left: 1px solid var(--color-border); border-right: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); border-radius: 4px 4px 12px 12px; text-align: center; transition: background 0.2s;"
+                    onmouseover="this.style.background='rgba(16,185,129,0.05)'"
+                    onmouseout="this.style.background='rgba(17,21,25,0.7)'">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.8rem;">✨</div>
+                    <!-- ✏️ TÍTULO PERFIL 3 -->
+                    <h4
+                        style="font-family: var(--font-display); font-size: 1.05rem; font-weight: 400; color: var(--color-white); margin-bottom: 0.5rem;">
+                        Marcas Personales</h4>
+                    <!-- ✏️ DESCRIPCIÓN PERFIL 3 -->
+                    <p style="color: var(--color-stone); font-size: 0.88rem; line-height: 1.6; margin: 0;">Que desean
+                        transmitir una imagen coherente y profesional en sus canales.</p>
+                </div>
+
+                <!-- ✏️ PERFIL 4 -->
+                <div style="padding: 1.8rem; background: rgba(17,21,25,0.7); border-top: 3px solid #f59e0b; border-left: 1px solid var(--color-border); border-right: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); border-radius: 4px 4px 12px 12px; text-align: center; transition: background 0.2s;"
+                    onmouseover="this.style.background='rgba(245,158,11,0.05)'"
+                    onmouseout="this.style.background='rgba(17,21,25,0.7)'">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.8rem;">🏫</div>
+                    <!-- ✏️ TÍTULO PERFIL 4 -->
+                    <h4
+                        style="font-family: var(--font-display); font-size: 1.05rem; font-weight: 400; color: var(--color-white); margin-bottom: 0.5rem;">
+                        Instituciones & Equipos</h4>
+                    <!-- ✏️ DESCRIPCIÓN PERFIL 4 -->
+                    <p style="color: var(--color-stone); font-size: 0.88rem; line-height: 1.6; margin: 0;">Que necesitan
+                        capacitación en Inteligencia Artificial y entornos TIC.</p>
+                </div>
+
             </div>
 
-            <!-- SECCIÓN 5: GARANTÍA DE ENTREGABLES -->
-            <div class="guarantee-section-banner">
-                <div class="guarantee-badge-circle">
-                    <span style="font-size: 2.4rem; font-weight: 800; color: #00f2ff; line-height: 1;">100%</span>
-                    <span style="font-size: 0.68rem; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0.2rem;">CALIDAD</span>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#contacto-directo" class="cta-button" style="margin-top: 0;">Solicitar propuesta personalizada
+                    →</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider-glow"></div>
+
+    <!-- ============================================================
+         SECCIÓN 5 — SOBRE MÍ (dentro de servicios)
+         ============================================================ -->
+    <section id="sobre-el-estratega" style="padding: 6rem 0; scroll-margin-top: 6rem;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start;">
+
+                <!-- Foto — sin recorte, con relación de aspecto correcta -->
+                <div
+                    style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--color-border); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+                    <img src="../assets/img/perfil.jpg" alt="Simón Diaz"
+                        style="width: 100%; height: 340px; object-fit: cover; object-position: center top; display: block;">
                 </div>
 
                 <div>
-                    <h3 style="font-size: 1.6rem; font-weight: 800; color: #ffffff; margin-bottom: 0.5rem;">
+                    <div
+                        style="font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: var(--color-lime); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.8rem;">
+                        Sobre mí</div>
+                    <h2 style="text-align: left; margin-bottom: 1rem;">
+                        Simón Diaz<br>
+                        <em>Estratega Digital & TIC</em>
+                    </h2>
+                    <!-- ✏️ PÁRRAFO 1 — Reemplazá con tu presentación principal -->
+                    <p
+                        style="color: rgba(242,239,232,0.9); font-size: 1.02rem; line-height: 1.7; margin-bottom: 1.2rem;">
+                        Me dedico a la comunicación digital desde un enfoque integral, planificando contenidos y
+                        gestionando la presencia de marcas en plataformas digitales.
+                    </p>
+                    <!-- ✏️ PÁRRAFO 2 — Reemplazá con tus credenciales o formación -->
+                    <p style="color: var(--color-stone); font-size: 0.95rem; line-height: 1.65; margin-bottom: 2rem;">
+                        Cuento con la <strong style="color: var(--color-white);">Tecnicatura en Gestión de Recursos
+                            Digitales</strong> y especialización en <strong
+                            style="color: var(--color-white);">Inteligencia Artificial y Automatizaciones (Fundación
+                            Alfa)</strong>.
+                    </p>
+
+                    <!-- Stats -->
+                    <div
+                        style="display: flex; flex-wrap: wrap; gap: 2.5rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem; margin-bottom: 2rem;">
+                        <!-- ✏️ STAT 1 — Número y etiqueta -->
+                        <div>
+                            <div
+                                style="font-family: var(--font-display); font-size: 2rem; color: var(--color-lime); line-height: 1;">
+                                +3 años</div>
+                            <span
+                                style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-stone); text-transform: uppercase; letter-spacing: 1px;">Experiencia</span>
+                        </div>
+                        <!-- ✏️ STAT 2 -->
+                        <div>
+                            <div
+                                style="font-family: var(--font-display); font-size: 2rem; color: var(--color-white); line-height: 1;">
+                                24/7</div>
+                            <span
+                                style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-stone); text-transform: uppercase; letter-spacing: 1px;">Respuestas
+                                auto</span>
+                        </div>
+                        <!-- ✏️ STAT 3 -->
+                        <div>
+                            <div
+                                style="font-family: var(--font-display); font-size: 2rem; color: var(--color-white); line-height: 1;">
+                                +10</div>
+                            <span
+                                style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-stone); text-transform: uppercase; letter-spacing: 1px;">Certificaciones</span>
+                        </div>
+                    </div>
+
+                    <!-- Clientes -->
+                    <!-- ✏️ CLIENTES — Reemplazá los nombres con tus clientes reales -->
+                    <div
+                        style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; border-top: 1px solid var(--color-border); padding-top: 1.2rem;">
+                        <span
+                            style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--color-lime); text-transform: uppercase; letter-spacing: 1px; margin-right: 0.5rem;">Clientes:</span>
+                        <span
+                            style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-stone); padding: 0.25rem 0.7rem; border: 1px solid var(--color-border); border-radius: 3px;">A&M
+                            Distribuidora</span>
+                        <span
+                            style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-stone); padding: 0.25rem 0.7rem; border: 1px solid var(--color-border); border-radius: 3px;">Grupo
+                            Kairos S.R.L</span>
+                        <span
+                            style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-stone); padding: 0.25rem 0.7rem; border: 1px solid var(--color-border); border-radius: 3px;">Miel
+                            Thami</span>
+                        <span
+                            style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-stone); padding: 0.25rem 0.7rem; border: 1px solid var(--color-border); border-radius: 3px;">Fundación
+                            Alfa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider-glow"></div>
+
+    <!-- ============================================================
+         SECCIÓN 6 — MODALIDADES / PRICING
+         ============================================================ -->
+    <section id="modalidades" style="padding: 5rem 0; scroll-margin-top: 6rem;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <span class="service-badge" style="margin-bottom: 0.8rem;">Opciones de contratación</span>
+                <h2 style="margin-top: 0.8rem;">Modalidades de Trabajo</h2>
+            </div>
+
+            <div class="central-pricing-container">
+
+                <!-- Columna izquierda -->
+                <div style="font-size: 0.92rem; color: var(--color-stone); line-height: 2.2;">
+                    <!-- ✏️ BENEFICIOS INCLUIDOS — Editá cada ítem -->
+                    <div
+                        style="display: flex; align-items: center; gap: 0.8rem; color: var(--color-white); font-weight: 600; margin-bottom: 0.8rem;">
+                        <span style="color: var(--color-lime);">⚡</span> Asesoría y diagnóstico inicial sin costo
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
+                        <span style="color: var(--color-lime);">🎨</span> Planificación y diseño de piezas visuales
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
+                        <span style="color: var(--color-lime);">🎬</span> Edición HD de video Reels & Shorts
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
+                        <span style="color: var(--color-lime);">🎯</span> Meta Ads con respuestas automatizadas 24/7
+                    </div>
+                </div>
+
+                <!-- Columna central — card de pricing -->
+                <div class="central-pricing-card"
+                    style="border-color: rgba(126,232,162,0.3); box-shadow: 0 15px 45px rgba(126,232,162,0.08);">
+                    <div
+                        style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-lime); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
+                        Proyecto o plan mensual</div>
+                    <!-- ✏️ TÍTULO PRICING -->
+                    <h3
+                        style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; color: var(--color-white); margin-bottom: 0.8rem;">
+                        Cotización A Medida</h3>
+
+                    <div style="margin: 1.2rem 0;">
+                        <span
+                            style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-white);">Presupuesto</span>
+                        <div
+                            style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-lime); margin-top: 0.3rem; letter-spacing: 0.5px;">
+                            Sin cargos ocultos</div>
+                    </div>
+
+                    <a href="#contacto-directo" onclick="preselectService('Proyecto por Entregables')"
+                        class="cta-button"
+                        style="width: 100%; box-sizing: border-box; margin-bottom: 1rem; margin-top: 0; justify-content: center;">
+                        Solicitar cotización →
+                    </a>
+
+                    <div
+                        style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--color-stone); display: flex; align-items: center; justify-content: center; gap: 1rem; letter-spacing: 0.3px;">
+                        <span>🔒 Confidencial</span>
+                        <span>⚡ Atención inmediata</span>
+                    </div>
+                </div>
+
+                <!-- Columna derecha -->
+                <div style="font-size: 0.92rem; color: var(--color-stone); line-height: 2.2;">
+                    <!-- ✏️ BENEFICIOS ADICIONALES — Editá cada ítem -->
+                    <div
+                        style="display: flex; align-items: center; gap: 0.8rem; color: var(--color-white); font-weight: 600; margin-bottom: 0.8rem;">
+                        <span style="color: #10b981;">📊</span> Reportes periódicos de interacción y rendimiento
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
+                        <span style="color: #10b981;">🤖</span> Adopción e integración de IA Generativa
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
+                        <span style="color: #10b981;">💬</span> Acompañamiento directo por WhatsApp
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
+                        <span style="color: #10b981;">🛡️</span> Garantía de satisfacción y 2 rondas de revisiones
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Banner de garantía -->
+            <div class="guarantee-section-banner" style="margin-top: 3rem;">
+                <div class="guarantee-badge-circle">
+                    <span
+                        style="font-family: var(--font-display); font-size: 1.8rem; color: var(--color-lime); line-height: 1;">100%</span>
+                    <span
+                        style="font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700; color: var(--color-white); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0.2rem;">Calidad</span>
+                </div>
+                <div>
+                    <!-- ✏️ GARANTÍA — Editá el título y descripción -->
+                    <h3
+                        style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--color-white); margin-bottom: 0.5rem;">
                         Garantía de Revisiones y Entregables
                     </h3>
-                    <p style="color: var(--text-dim); font-size: 0.98rem; line-height: 1.65; margin: 0;">
-                        Todos los entregables de diseño, edición de video o campañas incluyen <strong>hasta 2 rondas de revisiones completas</strong> para asegurar que el resultado cumpla con los estándares de tu marca.
+                    <p style="color: var(--color-stone); font-size: 0.98rem; line-height: 1.65; margin: 0;">
+                        Todos los entregables de diseño, edición de video o campañas incluyen <strong
+                            style="color: var(--color-white);">hasta 2 rondas de revisiones completas</strong> para
+                        asegurar que el resultado cumpla con los estándares de tu marca.
                     </p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="section-divider-glow"></div>
+    <div class="section-divider-glow"></div>
 
-            <!-- SECCIÓN 6: PREGUNTAS FRECUENTES FAQ -->
-            <div id="faq" style="scroll-margin-top: 6rem; margin-bottom: 4.5rem;">
-                <div class="faq-split-layout">
-                    
-                    <!-- Left Title Box -->
-                    <div>
-                        <div style="display: inline-block; padding: 0.35rem 1.2rem; border-radius: 50px; background: rgba(0, 242, 255, 0.1); color: #00f2ff; border: 1px solid rgba(0, 242, 255, 0.25); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem;">
-                            PREGUNTAS FRECUENTES
+    <!-- ============================================================
+         SECCIÓN 7 — PREGUNTAS FRECUENTES
+         ✏️ EDITAR: Reemplazá cada pregunta y respuesta con las tuyas.
+         ============================================================ -->
+    <section id="faq" style="padding: 5rem 0; scroll-margin-top: 6rem;">
+        <div class="container">
+            <div class="faq-split-layout">
+
+                <!-- Columna izquierda — título -->
+                <div>
+                    <span class="service-badge" style="margin-bottom: 0.8rem;">Preguntas frecuentes</span>
+                    <h2 style="text-align: left; margin-top: 0.8rem; margin-bottom: 1rem;">
+                        ¿Tenés alguna<br>
+                        <em>duda sobre los servicios?</em>
+                    </h2>
+                    <p style="color: var(--color-stone); font-size: 0.98rem; line-height: 1.65; margin-bottom: 1.8rem;">
+                        Consultá las respuestas frecuentes o escribime directamente por WhatsApp para coordinar una
+                        consulta.
+                    </p>
+                    <a href="https://wa.me/5493764852766?text=Hola%20Sim%C3%B3n,%20tengo%20una%20consulta"
+                        target="_blank" class="cta-button" style="margin-top: 0;">
+                        Escribir a WhatsApp →
+                    </a>
+                </div>
+
+                <!-- Columna derecha — accordion -->
+                <div class="faq-accordion">
+
+                    <!-- ✏️ FAQ 1 — Reemplazá pregunta y respuesta -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <!-- ✏️ PREGUNTA 1 -->
+                            <span>¿Aquí va tu pregunta frecuente número 1?</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <!-- ✏️ RESPUESTA 1 -->
+                            <p>Aquí va la respuesta a tu primera pregunta frecuente. Explicá de forma clara y directa lo
+                                que el cliente necesita saber. Podés extenderte todo lo que necesites.</p>
                         </div>
-                        <h2 style="font-size: 2.3rem; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 1rem;">
-                            ¿Tienes alguna duda sobre los servicios?
-                        </h2>
-                        <p style="color: var(--text-dim); font-size: 0.98rem; line-height: 1.65; margin-bottom: 1.8rem;">
-                            Consulta las respuestas frecuentes o escríbeme directamente por WhatsApp para coordinar una consulta.
-                        </p>
-                        <a href="https://wa.me/5493764852766?text=Hola%20Sim%C3%B3n,%20tengo%20una%20consulta" target="_blank" class="btn-neon-magenta">
-                            <span>Escribir a WhatsApp</span>
+                    </div>
+
+                    <!-- ✏️ FAQ 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <!-- ✏️ PREGUNTA 2 -->
+                            <span>¿Aquí va tu pregunta frecuente número 2?</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <!-- ✏️ RESPUESTA 2 -->
+                            <p>Aquí va la respuesta a tu segunda pregunta frecuente. Explicá de forma clara y directa lo
+                                que el cliente necesita saber.</p>
+                        </div>
+                    </div>
+
+                    <!-- ✏️ FAQ 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <!-- ✏️ PREGUNTA 3 -->
+                            <span>¿Aquí va tu pregunta frecuente número 3?</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <!-- ✏️ RESPUESTA 3 -->
+                            <p>Aquí va la respuesta a tu tercera pregunta frecuente. Explicá de forma clara y directa lo
+                                que el cliente necesita saber.</p>
+                        </div>
+                    </div>
+
+                    <!-- ✏️ FAQ 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <!-- ✏️ PREGUNTA 4 -->
+                            <span>¿Aquí va tu pregunta frecuente número 4?</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <!-- ✏️ RESPUESTA 4 -->
+                            <p>Aquí va la respuesta a tu cuarta pregunta frecuente. Explicá de forma clara y directa lo
+                                que el cliente necesita saber.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider-glow"></div>
+
+    <!-- ============================================================
+         SECCIÓN 8 — FORMULARIO → WHATSAPP
+         ✏️ NOTA: En el futuro conectar con Google Forms o Tally.
+         Por ahora envía a WhatsApp directo (+5493764852766).
+         ============================================================ -->
+    <section id="contacto-directo" style="padding: 5rem 0; scroll-margin-top: 6rem;">
+        <div class="container">
+            <div
+                style="max-width: 720px; margin: 0 auto; background: rgba(17,21,25,0.9); border-radius: 16px; padding: 3.5rem 2.5rem; border: 1px solid rgba(126,232,162,0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.4);">
+
+                <span class="service-badge" style="margin-bottom: 1rem;">Contacto directo</span>
+                <h2 style="text-align: left; margin-top: 0.8rem; margin-bottom: 0.8rem;">
+                    ¿Listo para consultar<br>
+                    <em>por tu proyecto?</em>
+                </h2>
+                <p style="color: var(--color-stone); font-size: 1rem; margin-bottom: 2rem; line-height: 1.6;">
+                    Seleccioná el servicio de tu interés y enviamos la consulta formateada directamente al WhatsApp de
+                    Simón Diaz.
+                </p>
+
+                <form id="service-quote-form" onsubmit="handleQuoteSubmit(event)"
+                    style="display: flex; flex-direction: column; gap: 1.2rem;">
+
+                    <div>
+                        <label
+                            style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--color-stone); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.6rem;">Servicio
+                            de interés</label>
+                        <select id="service-select"
+                            style="width: 100%; padding: 0.9rem 1rem; border-radius: 8px; background: var(--color-ink); border: 1px solid var(--color-border); color: var(--color-white); font-family: var(--font-body); font-size: 0.92rem; transition: border-color 0.2s; outline: none;"
+                            onfocus="this.style.borderColor='var(--color-lime)'"
+                            onblur="this.style.borderColor='var(--color-border)'">
+                            <!-- ✏️ OPCIONES DEL SERVICIO — Editá los valores según tus servicios reales -->
+                            <option value="Estrategia de Contenidos & Redes">Estrategia de Contenidos & Redes Sociales
+                            </option>
+                            <option value="Meta Ads con Automatización">Meta Ads con Automatización (Respuestas 24/7)
+                            </option>
+                            <option value="Producción & Edición Audiovisual">Producción & Edición Audiovisual (HD/Reels)
+                            </option>
+                            <option value="Consultoría TIC & Formación en IA">Consultoría TIC & Formación en IA
+                                Generativa</option>
+                            <option value="Asesoría 1 a 1">Asesoría & Diagnóstico 1 a 1</option>
+                            <option value="Proyecto por Entregables">Proyecto por Entregables</option>
+                            <option value="Acompañamiento Mensual">Acompañamiento Mensual</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label
+                            style="display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--color-stone); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.6rem;">Detalles
+                            de tu proyecto</label>
+                        <textarea id="service-message" rows="4"
+                            placeholder="Contanos brevemente qué necesitás o qué objetivos tenés en mente..."
+                            style="width: 100%; padding: 0.9rem 1rem; border-radius: 8px; background: var(--color-ink); border: 1px solid var(--color-border); color: var(--color-white); font-family: var(--font-body); font-size: 0.92rem; resize: vertical; outline: none; transition: border-color 0.2s; box-sizing: border-box;"
+                            onfocus="this.style.borderColor='var(--color-lime)'"
+                            onblur="this.style.borderColor='var(--color-border)'"></textarea>
+                    </div>
+
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+                        <button type="submit" class="cta-button"
+                            style="flex: 1; min-width: 200px; margin-top: 0; justify-content: center;">
+                            Enviar a WhatsApp →
+                        </button>
+                        <a href="../contacto/index.html" class="cta-button-secondary"
+                            style="margin-top: 0; flex: 0 0 auto;">
+                            Otros canales
                         </a>
                     </div>
 
-                    <!-- Right Accordion List -->
-                    <div class="faq-accordion">
-                        <div class="faq-item">
-                            <button class="faq-question">
-                                <span>¿Cómo funcionan las respuestas automatizadas en Meta Ads?</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                            </button>
-                            <div class="faq-answer">
-                                <p>Configuramos tus campañas publicitarias conectadas a flujos automatizados que detectan cuando un usuario comenta o envía un mensaje privado, respondiendo de inmediato con información o catálogos las 24 horas.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question">
-                                <span>¿Cómo se realiza el presupuesto de un proyecto?</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                            </button>
-                            <div class="faq-answer">
-                                <p>Realizamos una conversación inicial para entender tus necesidades. Luego elaboramos una propuesta formal con entregables claros, tiempos de trabajo y un valor total cerrado.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question">
-                                <span>¿Trabajas con clientes de forma 100% remota?</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                            </button>
-                            <div class="faq-answer">
-                                <p>¡Sí! Todos los servicios de estrategia, edición de video, automatización publicitaria y consultoría TIC se realizan de forma remota con seguimiento por videollamada y WhatsApp.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question">
-                                <span>¿Cuántas revisiones se incluyen por entregable?</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                            </button>
-                            <div class="faq-answer">
-                                <p>Todos los proyectos incluyen hasta 2 rondas de revisiones completas para ajustar cualquier detalle de edición o diseño.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                </form>
             </div>
-
-            <!-- SECCIÓN 7: FORMULARIO DIRECTO & COTIZACIÓN A WHATSAPP (`+54 9 376 485 2766`) -->
-            <div id="contacto-directo" style="scroll-margin-top: 6rem; background: rgba(12, 16, 28, 0.85); border-radius: 22px; padding: 4rem 2rem; border: 1px solid rgba(0, 242, 255, 0.25); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); position: relative; overflow: hidden;">
-                <div style="max-width: 720px; margin: 0 auto; text-align: center; position: relative; z-index: 1;">
-                    <div style="display: inline-block; padding: 0.35rem 1.2rem; border-radius: 50px; background: rgba(0, 242, 255, 0.1); color: #00f2ff; border: 1px solid rgba(0, 242, 255, 0.25); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">
-                        CONTACTO DIRECTO
-                    </div>
-                    <h2 style="font-size: 2.4rem; font-weight: 800; margin-bottom: 1rem; color: #ffffff;">¿Listo para consultar por tu proyecto?</h2>
-                    <p style="color: rgba(255, 255, 255, 0.85); font-size: 1.05rem; margin-bottom: 2.2rem; line-height: 1.6;">
-                        Selecciona el servicio de tu interés y enviamos la consulta formateada directamente al WhatsApp oficial de Simón Diaz.
-                    </p>
-
-                    <!-- Formulario Interactivo -->
-                    <form id="service-quote-form" onsubmit="handleQuoteSubmit(event)" style="display: flex; flex-direction: column; gap: 1.2rem; text-align: left; background: rgba(8, 10, 18, 0.9); padding: 2rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <div>
-                            <label style="display: block; font-size: 0.88rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">Servicio de Interés:</label>
-                            <select id="service-select" style="width: 100%; padding: 0.9rem 1rem; border-radius: 10px; background: #07090e; border: 1px solid rgba(0, 242, 255, 0.3); color: #fff; font-size: 0.92rem; font-family: inherit;">
-                                <option value="Estrategia de Contenidos & Redes">Estrategia de Contenidos & Redes Sociales</option>
-                                <option value="Meta Ads con Automatización">Meta Ads con Automatización (Respuestas 24/7)</option>
-                                <option value="Producción & Edición Audiovisual">Producción & Edición Audiovisual (HD/Reels)</option>
-                                <option value="Consultoría TIC & Formación en IA">Consultoría TIC & Formación en IA Generativa</option>
-                                <option value="Asesoría 1 a 1">Asesoría & Diagnóstico 1 a 1</option>
-                                <option value="Proyecto por Entregables">Proyecto por Entregables</option>
-                                <option value="Acompañamiento Mensual">Acompañamiento Mensual</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label style="display: block; font-size: 0.88rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">Detalles o consulta de tu proyecto:</label>
-                            <textarea id="service-message" rows="3" placeholder="Cuéntanos brevemente qué necesitas o qué objetivos tienes en mente..." style="width: 100%; padding: 0.9rem 1rem; border-radius: 10px; background: #07090e; border: 1px solid rgba(255, 255, 255, 0.15); color: #fff; font-size: 0.92rem; font-family: inherit; resize: vertical;"></textarea>
-                        </div>
-
-                        <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
-                            <button type="submit" class="btn-neon-magenta" style="flex: 1; min-width: 230px;">
-                                <span>Enviar a WhatsApp Directo</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </button>
-                            <a href="../contacto/index.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; background: rgba(255, 255, 255, 0.08); color: #ffffff; font-weight: 700; font-size: 0.92rem; padding: 0.9rem 1.6rem; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.18); text-decoration: none;">
-                                Formulario Completo
-                            </a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
         </div>
     </section>
 
     <footer>
         <div class="container" style="text-align: center;">
-            <p style="margin-bottom: 0.5rem;">Contacto: <a href="#" class="secure-email" data-u="simondiaz.contacto" data-d="gmail.com" style="color: var(--accent); text-decoration: none;">Simondiaz.contacto@gmail.com</a></p>
-            <p>&copy; 2026 Simón Diaz. Todos los derechos reservados.</p>
+            <p
+                style="font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 1rem; color: var(--color-white);">
+                Simón<span style="color: var(--color-lime)">.</span>Diaz</p>
+            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">
+                <a href="mailto:simondiaz.contacto@gmail.com">simondiaz.contacto@gmail.com</a>
+            </p>
+            <p
+                style="font-size: 0.8rem; font-family: var(--font-mono); letter-spacing: 1px; opacity: 0.5; margin-top: 1.5rem;">
+                &copy; 2026 Simón Diaz — Posadas, Misiones</p>
         </div>
     </footer>
 
-    <!-- Interactive Landing Script -->
     <script type="module" src="../assets/js/main.js"></script>
     <script>
-        // Interactive Bot Simulator Handler
-        function triggerSimBot(type) {
-            const chatBody = document.getElementById('sim-chat-body');
-            let userText = '';
-            let botText = '';
-
-            if (type === 'precios') {
-                userText = '💡 ¿Cuál es el presupuesto para mi marca?';
-                botText = 'Los presupuestos se arman a medida según tus entregables (Redes, Meta Ads o Edición HD). Puedes seleccionar tu servicio en el formulario de abajo para consultar una propuesta.';
-            } else if (type === 'meta') {
-                userText = '🎯 ¿Cómo funcionan los bots en Meta Ads?';
-                botText = 'Conectamos tus anuncios a un flujo de trabajo que detecta comentarios y DMs de clientes, enviando información relevante o enlaces en menos de un segundo.';
-            } else if (type === 'video') {
-                userText = '🎬 ¿Qué tipo de edición de video realizan?';
-                botText = 'Realizamos edición dinámica en CapCut/Premiere: subtítulos animados estilo Reel/Short, cortes de ritmo y videopodcasts completos.';
-            } else if (type === 'humano') {
-                userText = '📲 Quiero hablar directamente con Simón por WhatsApp';
-                botText = '¡Perfecto! Te redirigimos a la ventana directa de WhatsApp de Simón Diaz (+54 9 376 485 2766)...';
-                setTimeout(() => {
-                    window.open('https://wa.me/5493764852766?text=Hola%20Sim%C3%B3n,%20tengo%20una%20consulta', '_blank');
-                }, 800);
-            }
-
-            // Append User Message
-            const uMsg = document.createElement('div');
-            uMsg.className = 'chat-bubble user';
-            uMsg.textContent = userText;
-            chatBody.appendChild(uMsg);
-            chatBody.scrollTop = chatBody.scrollHeight;
-
-            // Append Bot Response after small delay
-            setTimeout(() => {
-                const bMsg = document.createElement('div');
-                bMsg.className = 'chat-bubble bot';
-                bMsg.textContent = botText;
-                chatBody.appendChild(bMsg);
-                chatBody.scrollTop = chatBody.scrollHeight;
-            }, 350);
-        }
-
-        // FAQ Accordion Toggle
+        // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
                 const isActive = faqItem.classList.contains('active');
                 document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                }
+                if (!isActive) faqItem.classList.add('active');
             });
         });
 
-        // Preselect Service in Dropdown
+        // Preselect service in dropdown (called from card links)
         function preselectService(serviceName) {
             const select = document.getElementById('service-select');
-            if (select) {
-                for (let i = 0; i < select.options.length; i++) {
-                    if (select.options[i].value === serviceName) {
-                        select.selectedIndex = i;
-                        break;
-                    }
+            if (!select) return;
+            for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].value === serviceName) {
+                    select.selectedIndex = i;
+                    break;
                 }
             }
         }
 
-        // WhatsApp Direct Handler (+5493764852766)
+        // WhatsApp message handler
+        // ✏️ WHATSAPP: Cambiá el número si cambia (+5493764852766 = Simón Diaz Misiones)
         function handleQuoteSubmit(e) {
             e.preventDefault();
             const service = document.getElementById('service-select').value;
             const message = document.getElementById('service-message').value;
-            
+
             let text = `Hola Simón, quisiera consultar sobre el servicio de *${service}*.`;
             if (message && message.trim().length > 0) {
                 text += `\n\nDetalles de mi consulta:\n${message.trim()}`;
             }
-            
+
             const encoded = encodeURIComponent(text);
-            const waUrl = `https://wa.me/5493764852766?text=${encoded}`;
-            window.open(waUrl, '_blank');
+            window.open(`https://wa.me/5493764852766?text=${encoded}`, '_blank');
         }
     </script>
 </body>
+
 </html>

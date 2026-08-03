@@ -13,3 +13,5 @@ sitemap*.xml
 Thumbs.db
 .vscode/
 .idea/
+
+.vercel
