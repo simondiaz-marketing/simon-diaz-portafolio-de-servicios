@@ -66,11 +66,13 @@ export class ArticleNavManager {
     }
 
     getRelativePrefix() {
-        const indexLink = document.querySelector('nav a[href*="index.html"]');
-        if (indexLink) {
-            const href = indexLink.getAttribute('href');
-            if (href.startsWith('../../')) return '../../';
-            if (href.startsWith('../')) return '../';
+        const segments = window.location.pathname.split('/').filter(Boolean);
+        if (segments.length > 0) {
+            const isFile = segments[segments.length - 1].includes('.');
+            const folderCount = isFile ? segments.length - 1 : segments.length;
+            if (folderCount > 0) {
+                return "../".repeat(folderCount);
+            }
         }
         return '';
     }
@@ -97,7 +99,7 @@ export class ArticleNavManager {
 
             card.innerHTML = `
                 <h3 class="related-articles__card-title">${post.title}</h3>
-                <p class="card-date" style="margin-top: 0; margin-bottom: 0.5rem;">${post.date}</p>
+                <p class="card-date article-card-date">${post.date}</p>
                 <p class="related-articles__description">${post.description}</p>
                 <span class="related-articles__link">Leer artículo →</span>
             `;

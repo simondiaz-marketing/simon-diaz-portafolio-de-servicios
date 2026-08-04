@@ -1,5 +1,4 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.132.2';
-import { SearchManager } from './search.js';
 import { PaginationManager } from './pagination.js';
 import { ArticleNavManager } from './article-nav.js';
 
@@ -53,11 +52,16 @@ function setupMobileMenu() {
     
     if (!navContainer || !navLinks) return;
     
+    // Asignar ID a navLinks si no lo tiene
+    if (!navLinks.id) navLinks.id = 'nav-links-menu';
+    
     // Create button
     const btn = document.createElement('button');
     btn.className = 'mobile-menu-btn';
     btn.id = 'mobile-menu-btn';
     btn.setAttribute('aria-label', 'Menú móvil');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', navLinks.id);
     btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`;
     
     // Append button to nav container
@@ -67,6 +71,7 @@ function setupMobileMenu() {
     btn.addEventListener('click', () => {
         const isActive = navLinks.classList.toggle('active');
         btn.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         
         if (isActive) {
             btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`;
@@ -82,6 +87,7 @@ function setupMobileMenu() {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
             btn.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
             btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`;
             document.body.style.overflow = '';
         });
@@ -92,6 +98,7 @@ function setupMobileMenu() {
         if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
             btn.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
             btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`;
             document.body.style.overflow = '';
         }
@@ -188,7 +195,6 @@ function setupTimeline() {
 
 // Initialize Search, Pagination, Mobile Menu and Timeline
 function initApp() {
-    new SearchManager();
     new PaginationManager();
     new ArticleNavManager();
     setupMobileMenu();

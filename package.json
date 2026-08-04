@@ -1,0 +1,12 @@
+{
+  "name": "simon-diaz-portafolio",
+  "version": "1.0.0",
+  "description": "Portafolio de Servicios de Simón Diaz",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx lite-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

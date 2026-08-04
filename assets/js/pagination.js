@@ -48,15 +48,14 @@ export class PaginationManager {
         const prevPost = this.blogPosts[currentIndex + 1]; // Older post
         const nextPost = this.blogPosts[currentIndex - 1]; // Newer post
 
-        // Determine prefix by checking the navbar's link to index.html
+        // Determine prefix robustly using current path nesting levels
         let prefix = "";
-        const indexLink = document.querySelector('nav a[href*="index.html"]');
-        if (indexLink) {
-            const href = indexLink.getAttribute('href');
-            if (href.startsWith('../../')) {
-                prefix = '../../';
-            } else if (href.startsWith('../')) {
-                prefix = '../';
+        const segments = window.location.pathname.split('/').filter(Boolean);
+        if (segments.length > 0) {
+            const isFile = segments[segments.length - 1].includes('.');
+            const folderCount = isFile ? segments.length - 1 : segments.length;
+            if (folderCount > 0) {
+                prefix = "../".repeat(folderCount);
             }
         }
 
