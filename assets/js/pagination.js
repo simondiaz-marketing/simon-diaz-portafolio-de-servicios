@@ -12,15 +12,18 @@ export class PaginationManager {
             const dataPath = window.location.origin + '/data/academic-posts.json';
             const response = await fetch(dataPath);
             if (!response.ok) throw new Error('Fetch failed');
-            this.blogPosts = await response.json();
+            const data = await response.json();
+            this.blogPosts = Array.isArray(data) ? data : (data.posts || []);
         } catch (e) {
             try {
                 const response = await fetch('../data/academic-posts.json');
-                this.blogPosts = await response.json();
+                const data = await response.json();
+                this.blogPosts = Array.isArray(data) ? data : (data.posts || []);
             } catch (err1) {
                 try {
                     const response = await fetch('../../data/academic-posts.json');
-                    this.blogPosts = await response.json();
+                    const data = await response.json();
+                    this.blogPosts = Array.isArray(data) ? data : (data.posts || []);
                 } catch (err2) {}
             }
         }

@@ -18,7 +18,6 @@ collections:
       - file: "data/services.json"
         label: "Servicios Ofrecidos"
         name: "services"
-        json_key: "services"
         fields:
           - label: "Servicios"
             name: "services"

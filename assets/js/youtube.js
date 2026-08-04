@@ -16,7 +16,8 @@ async function fetchLatestVideos() {
 
     // 2. Fallback to local JSON sources if API is not configured or failed
     if (!videos || videos.length === 0) {
-        videos = await fetchRelativeJson('sources_youtube.json') || [];
+        const localData = await fetchRelativeJson('sources_youtube.json');
+        videos = Array.isArray(localData) ? localData : (localData ? (localData.videos || []) : []);
     }
 
     if (videos && videos.length > 0) {
