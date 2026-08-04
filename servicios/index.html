@@ -91,141 +91,259 @@
 
     <!-- SECCIÓN 2 — METODOLOGÍA DE TRABAJO -->
     <style>
-        .step-card {
+        details.step-card {
             background: rgba(20, 26, 45, 0.4);
             border: 1px solid var(--color-border);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.5rem 2rem;
             position: relative;
             overflow: hidden;
             transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
-        .step-card:hover {
-            border-color: rgba(163, 230, 53, 0.4);
-            box-shadow: 0 0 20px rgba(163, 230, 53, 0.06);
-            transform: translateY(-3px);
-            background: rgba(20, 26, 45, 0.6);
+        details.step-card[open] {
+            border-color: rgba(163, 230, 53, 0.5);
+            background: rgba(20, 26, 45, 0.7);
+            box-shadow: 0 0 20px rgba(163, 230, 53, 0.08);
         }
-        .step-card:hover .step-number {
-            color: rgba(163, 230, 53, 0.3) !important;
-            transform: scale(1.05);
+        details.step-card summary {
+            list-style: none;
+            outline: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-right: 6rem; /* Deja espacio para el número y flecha */
+        }
+        details.step-card summary::-webkit-details-marker {
+            display: none;
+        }
+        details.step-card summary h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--color-white);
+            font-weight: 400;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+        details.step-card[open] summary h3,
+        details.step-card summary:hover h3 {
+            color: var(--color-lime);
         }
         .step-number {
             font-family: var(--font-mono);
-            font-size: 2.8rem;
+            font-size: 2rem;
             font-weight: 800;
-            color: rgba(163, 230, 53, 0.1);
+            color: rgba(163, 230, 53, 0.45); /* Color claro con buen contraste en fondo oscuro */
             position: absolute;
-            top: 1rem;
-            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 4.5rem;
             line-height: 1;
             transition: all 0.3s ease;
+            pointer-events: none;
         }
-        .workflow-sequence span {
+        details.step-card[open] .step-number {
+            color: var(--color-lime) !important;
+            text-shadow: 0 0 10px rgba(163, 230, 53, 0.3);
+        }
+        .step-arrow {
+            transition: transform 0.3s ease;
+            color: var(--color-stone);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        details.step-card[open] .step-arrow {
+            transform: translateY(-50%) rotate(180deg);
+            color: var(--color-lime);
+        }
+        .step-content {
+            margin-top: 1rem;
+            color: var(--color-stone);
+            font-size: 0.9rem;
+            line-height: 1.65;
+            animation: fadeInStep 0.4s ease;
+        }
+        @keyframes fadeInStep {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilos del Slider de Mejora Continua */
+        .workflow-ticker-wrapper {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+            padding: 0.5rem 0;
+        }
+        .workflow-ticker-track {
+            display: flex;
+            gap: 3rem;
+            width: max-content;
+            animation: scroll-workflow 25s linear infinite;
+        }
+        .workflow-ticker-track span {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            color: var(--color-white);
+            font-weight: 400;
+            white-space: nowrap;
             transition: color 0.3s ease;
         }
-        .workflow-sequence span:hover {
+        .workflow-ticker-track span:hover {
             color: var(--color-lime);
+        }
+        .workflow-arrow {
+            opacity: 0.4;
+            font-family: var(--font-mono);
+            color: var(--color-stone);
+        }
+        @keyframes scroll-workflow {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
     </style>
 
     <section id="metodologia" style="padding: 6rem 0; background: rgba(17, 21, 25, 0.4); border-bottom: 1px solid var(--color-border);">
         <div class="container">
-            <div style="margin-bottom: 4rem;">
+            <div style="margin-bottom: 3.5rem;">
                 <span class="service-badge" style="margin-bottom: 0.8rem;">Cómo trabajamos</span>
                 <h2 style="font-size: 2.5rem; margin-top: 0.5rem; margin-bottom: 1.2rem;">
                     Metodología de Trabajo
                 </h2>
-                <p style="max-width: 760px; font-size: 1.05rem; color: var(--color-stone); line-height: 1.8;">
+                <p style="max-width: 760px; font-size: 1.05rem; color: var(--color-stone); line-height: 1.8; margin-bottom: 0;">
                     Un proceso estructurado en <strong>diagnóstico, estrategia y optimización continua</strong>. 
                     Cada proyecto comienza entendiendo el negocio a fondo y se gestiona mediante decisiones basadas en datos. 
-                    La estrategia no es estática: se analiza, implementa y ajusta constantemente para maximizar resultados.
+                    Hacé clic en cada fase para ver en detalle cómo llevamos adelante el proceso.
                 </p>
             </div>
 
-            <!-- Grid de 7 Pasos -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+            <!-- Acordeón en Grid de 6 Pasos -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
                 
                 <!-- Paso 1 -->
-                <div class="step-card">
-                    <div class="step-number">01</div>
-                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-white); margin-bottom: 0.8rem; padding-right: 2.5rem; font-weight: 400;">Diagnóstico inicial</h3>
-                    <p style="color: var(--color-stone); font-size: 0.9rem; line-height: 1.6; margin: 0;">
-                        Comenzamos con una llamada para conocer el negocio, sus objetivos, necesidades y situación actual. Esta instancia permite determinar si existe un encaje real entre el proyecto y nuestros servicios.
-                    </p>
-                </div>
+                <details class="step-card" name="metodologia-steps" open>
+                    <summary>
+                        <h3>Diagnóstico inicial</h3>
+                        <div class="step-number">01</div>
+                        <div class="step-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </summary>
+                    <div class="step-content">
+                        Comenzamos con una llamada para conocer el negocio, sus objetivos, necesidades y situación actual. Esta instancia también permite determinar si existe un encaje real entre las necesidades del proyecto y la línea de servicios ofrecida.
+                    </div>
+                </details>
 
                 <!-- Paso 2 -->
-                <div class="step-card">
-                    <div class="step-number">02</div>
-                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-white); margin-bottom: 0.8rem; padding-right: 2.5rem; font-weight: 400;">Brief personalizado</h3>
-                    <p style="color: var(--color-stone); font-size: 0.9rem; line-height: 1.6; margin: 0;">
-                        Si existe compatibilidad, se envía un brief diseñado específicamente para recopilar información clave de la marca, público objetivo, metas comerciales, canales y principales desafíos.
-                    </p>
-                </div>
+                <details class="step-card" name="metodologia-steps">
+                    <summary>
+                        <h3>Brief personalizado</h3>
+                        <div class="step-number">02</div>
+                        <div class="step-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </summary>
+                    <div class="step-content">
+                        Si existe compatibilidad, se envía un brief diseñado específicamente para recopilar la información necesaria para el proyecto, profundizando en aspectos como la marca, productos, público objetivo, metas comerciales, canales y principales desafíos.
+                    </div>
+                </details>
 
                 <!-- Paso 3 -->
-                <div class="step-card">
-                    <div class="step-number">03</div>
-                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-white); margin-bottom: 0.8rem; padding-right: 2.5rem; font-weight: 400;">Investigación de mercado</h3>
-                    <p style="color: var(--color-stone); font-size: 0.9rem; line-height: 1.6; margin: 0;">
-                        Con los datos recolectados, realizamos una investigación enfocada en el contexto específico: analizamos competidores, tendencias y público objetivo para identificar oportunidades reales de posicionamiento.
-                    </p>
-                </div>
+                <details class="step-card" name="metodologia-steps">
+                    <summary>
+                        <h3>Investigación de mercado</h3>
+                        <div class="step-number">03</div>
+                        <div class="step-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </summary>
+                    <div class="step-content">
+                        Con la información recopilada realizamos una investigación enfocada en el contexto específico: analizamos el mercado, competidores, tendencias y público objetivo para identificar oportunidades reales que fundamenten las decisiones estratégicas.
+                    </div>
+                </details>
 
                 <!-- Paso 4 -->
-                <div class="step-card">
-                    <div class="step-number">04</div>
-                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-white); margin-bottom: 0.8rem; padding-right: 2.5rem; font-weight: 400;">Estrategia de marketing</h3>
-                    <p style="color: var(--color-stone); font-size: 0.9rem; line-height: 1.6; margin: 0;">
-                        Desarrollamos una hoja de ruta con objetivos, canales y líneas temáticas concretas. Esta estrategia se plasma en un calendario editorial que organiza y da sentido a la comunicación del negocio.
-                    </p>
-                </div>
+                <details class="step-card" name="metodologia-steps">
+                    <summary>
+                        <h3>Estrategia de marketing</h3>
+                        <div class="step-number">04</div>
+                        <div class="step-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </summary>
+                    <div class="step-content">
+                        Definimos objetivos, canales y líneas de acción concretas. Traducimos esta estrategia en un calendario editorial que organiza y da sentido a los contenidos, estableciendo qué comunicar, dónde, cuándo y con qué propósito.
+                    </div>
+                </details>
 
                 <!-- Paso 5 -->
-                <div class="step-card">
-                    <div class="step-number">05</div>
-                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-white); margin-bottom: 0.8rem; padding-right: 2.5rem; font-weight: 400;">Implementación &amp; Seguimiento</h3>
-                    <p style="color: var(--color-stone); font-size: 0.9rem; line-height: 1.6; margin: 0;">
-                        Ejecutamos la estrategia y realizamos un monitoreo constante del rendimiento de los contenidos y campañas. Identificamos qué funciona mejor y qué oportunidades surgen día a día.
-                    </p>
-                </div>
+                <details class="step-card" name="metodologia-steps">
+                    <summary>
+                        <h3>Implementación &amp; Seguimiento</h3>
+                        <div class="step-number">05</div>
+                        <div class="step-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </summary>
+                    <div class="step-content">
+                        Con la planificación aprobada, iniciamos la ejecución mensual. Monitoreamos de forma activa el rendimiento de los contenidos y campañas publicitarias para detectar qué funciona mejor y aprovechar oportunidades inmediatas.
+                    </div>
+                </details>
 
                 <!-- Paso 6 -->
-                <div class="step-card">
-                    <div class="step-number">06</div>
-                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-white); margin-bottom: 0.8rem; padding-right: 2.5rem; font-weight: 400;">Optimización mensual</h3>
-                    <p style="color: var(--color-stone); font-size: 0.9rem; line-height: 1.6; margin: 0;">
-                        La planificación es flexible. Cada mes analizamos métricas y, si los datos lo justifican, realizamos ajustes de formatos, frecuencia, canales o mensajes para mantenernos alineados al mercado.
-                    </p>
-                </div>
-
-                <!-- Paso 7 -->
-                <div class="step-card">
-                    <div class="step-number">07</div>
-                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-white); margin-bottom: 0.8rem; padding-right: 2.5rem; font-weight: 400;">Evaluación trimestral</h3>
-                    <p style="color: var(--color-stone); font-size: 0.9rem; line-height: 1.6; margin: 0;">
-                        Presentamos reportes detallados del trimestre que evalúan la evolución del ecosistema de la marca, extraen aprendizajes clave y definen la dirección estratégica del siguiente período.
-                    </p>
-                </div>
+                <details class="step-card" name="metodologia-steps">
+                    <summary>
+                        <h3>Optimización continua</h3>
+                        <div class="step-number">06</div>
+                        <div class="step-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </summary>
+                    <div class="step-content">
+                        Evaluamos resultados mensualmente para aplicar ajustes adaptativos en formatos o canales. Asimismo, cada tres meses realizamos una evaluación integral que mide la evolución de los indicadores clave de la marca y proyecta el plan del siguiente ciclo.
+                    </div>
+                </details>
 
             </div>
 
-            <!-- Workflow Loop Banner -->
+            <!-- Workflow Slide Loop Banner -->
             <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--color-border); border-radius: 16px; padding: 2.5rem; text-align: center;">
-                <h4 style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-lime); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;">Un proceso continuo</h4>
-                <div class="workflow-sequence" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.8rem 1.2rem; font-family: var(--font-display); font-size: 1.05rem; color: var(--color-white); font-weight: 400;">
-                    <span>Diagnosticar</span> <span style="opacity: 0.3; font-family: var(--font-mono);">→</span>
-                    <span>Investigar</span> <span style="opacity: 0.3; font-family: var(--font-mono);">→</span>
-                    <span>Estrategizar</span> <span style="opacity: 0.3; font-family: var(--font-mono);">→</span>
-                    <span>Implementar</span> <span style="opacity: 0.3; font-family: var(--font-mono);">→</span>
-                    <span>Analizar</span> <span style="opacity: 0.3; font-family: var(--font-mono);">→</span>
-                    <span>Optimizar</span> <span style="opacity: 0.3; font-family: var(--font-mono);">→</span>
-                    <span>Evaluar</span>
+                <h4 style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-lime); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;">Proceso de Mejora Continua</h4>
+                
+                <div class="workflow-ticker-wrapper">
+                    <div class="workflow-ticker-track">
+                        <!-- Bloque 1 -->
+                        <span>Diagnosticar</span> <span class="workflow-arrow">→</span>
+                        <span>Investigar</span> <span class="workflow-arrow">→</span>
+                        <span>Estrategizar</span> <span class="workflow-arrow">→</span>
+                        <span>Implementar</span> <span class="workflow-arrow">→</span>
+                        <span>Analizar</span> <span class="workflow-arrow">→</span>
+                        <span>Optimizar</span> <span class="workflow-arrow">→</span>
+                        <!-- Bloque 2 (Duplicado para infinite scroll) -->
+                        <span>Diagnosticar</span> <span class="workflow-arrow">→</span>
+                        <span>Investigar</span> <span class="workflow-arrow">→</span>
+                        <span>Estrategizar</span> <span class="workflow-arrow">→</span>
+                        <span>Implementar</span> <span class="workflow-arrow">→</span>
+                        <span>Analizar</span> <span class="workflow-arrow">→</span>
+                        <span>Optimizar</span> <span class="workflow-arrow">→</span>
+                    </div>
                 </div>
+
                 <p style="color: var(--color-stone); font-size: 0.9rem; margin-top: 1.8rem; margin-bottom: 0; max-width: 650px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-                    Combinamos planificación con adaptabilidad: se parte de una estrategia estructurada, pero las decisiones de campaña y contenido se refinan basándose en el comportamiento real de tu audiencia.
+                    Combinamos planificación con flexibilidad: partimos de una estrategia estructurada, pero las decisiones de contenidos y pauta se revisan continuamente a partir de los datos y resultados obtenidos.
                 </p>
             </div>
         </div>
