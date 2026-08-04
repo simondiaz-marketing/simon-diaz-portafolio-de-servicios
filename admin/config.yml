@@ -2,7 +2,7 @@ backend:
   name: github
   repo: simondiaz-marketing/simon-diaz-portafolio-de-servicios
   branch: main
-  base_url: https://simon-diaz-portafolio-de-servicios.vercel.app
+  base_url: https://simondiaz-marketing.vercel.app
   auth_endpoint: api/auth
 
 media_folder: "img"
