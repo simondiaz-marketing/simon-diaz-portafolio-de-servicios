@@ -1,64 +1,85 @@
 {
   "services": [
     {
-      "id": "marketing-digital",
-      "title": "Estrategia & Marketing Digital",
+      "id": "estrategia-contenidos",
+      "title": "Estrategia de Contenidos",
       "category": "Marketing Digital",
-      "badge": "Estrategia & Marca",
-      "shortDescription": "Planificación estratégica de contenidos, gestión de redes sociales y posicionamiento de marca para potenciar tu presencia digital.",
+      "badge": "Planificación & Copys",
+      "shortDescription": "Planificación de calendario editorial, redacción de copys persuasivos y diseño de piezas visuales para redes sociales.",
       "features": [
-        "Estrategia de contenidos en redes sociales",
-        "Creación y diseño de publicaciones visuales",
-        "Optimización de perfiles institucionales o comerciales",
-        "Análisis de rendimiento y métricas de alcance"
+        "Planificación de calendario editorial",
+        "Redacción de copys persuasivos",
+        "Diseño de piezas visuales para redes sociales"
       ],
-      "icon": "trending-up",
-      "url": "servicios/index.html#marketing-digital"
+      "icon": "smartphone",
+      "url": "servicios/index.html#estrategia-contenidos"
     },
     {
-      "id": "creacion-contenido",
-      "title": "Creación de Contenido Audiovisual",
+      "id": "gestion-campanas",
+      "title": "Gestión de campañas publicitarias",
+      "category": "Publicidad",
+      "badge": "Ads & Conversión",
+      "shortDescription": "Configuración de anuncios orientados a conversión conectados a respuestas automáticas en comentarios y mensajes privados 24/7.",
+      "features": [
+        "Configuración de anuncios orientados a conversión",
+        "Respuestas automáticas en comentarios y mensajes 24/7"
+      ],
+      "icon": "target",
+      "url": "servicios/index.html#gestion-campanas"
+    },
+    {
+      "id": "edicion-video",
+      "title": "Edición de Video",
       "category": "Producción Audiovisual",
-      "badge": "Video & Podcast",
-      "shortDescription": "Producción, guionizado y edición de videos educativos, promocionales y videopodcasts con acabado profesional.",
+      "badge": "Reels & Podcasts",
+      "shortDescription": "Edición dinámica en CapCut/Premiere de Reels, Shorts, videos promocionales y videopodcasts con subtitulado profesional.",
       "features": [
-        "Edición y postproducción de video en alta definición",
-        "Elaboración de guiones dinámicos para redes y YouTube",
-        "Creación de reels, shorts y formatos verticales",
-        "Grabación y producción de videopodcasts educativos"
+        "Edición dinámica en CapCut/Premiere",
+        "Edición de Reels, Shorts y videos promocionales",
+        "Edición de videopodcasts con subtitulado profesional"
       ],
-      "icon": "video",
-      "url": "servicios/index.html#creacion-contenido"
+      "icon": "film",
+      "url": "servicios/index.html#edicion-video"
     },
     {
-      "id": "consultoria-tic",
-      "title": "Consultoría & Asesoría Tecnológica (TIC)",
-      "category": "Consultoría TIC",
-      "badge": "Sistemas & Herramientas",
-      "shortDescription": "Diagnóstico, selección e implementación de herramientas digitales, software y soluciones tecnológicas para organizaciones e instituciones.",
+      "id": "creacion-contenidos",
+      "title": "Creación de Contenidos",
+      "category": "Marketing Digital",
+      "badge": "Diseño & Feed",
+      "shortDescription": "Desarrollo conceptual y gráfico de publicaciones estáticas, carruseles y formatos dinámicos optimizados para Instagram y Facebook, pensados para destacar en el feed.",
       "features": [
-        "Evaluación de infraestructura digital e itinerarios TIC",
-        "Selección e integración de plataformas cloud y ofimáticas",
-        "Asesoramiento en herramientas de Inteligencia Artificial",
-        "Digitalización de procesos y optimización de flujos de trabajo"
+        "Desarrollo conceptual y gráfico",
+        "Publicaciones estáticas y carruseles",
+        "Formatos dinámicos para destacar en el feed"
       ],
-      "icon": "cpu",
-      "url": "servicios/index.html#consultoria-tic"
+      "icon": "palette",
+      "url": "servicios/index.html#creacion-contenidos"
     },
     {
-      "id": "capacitaciones-talleres",
-      "title": "Capacitaciones & Talleres Tecnológicos",
-      "category": "Capacitaciones",
-      "badge": "Formación & Educación",
-      "shortDescription": "Talleres prácticos y capacitaciones en competencias digitales, IA aplicada y herramientas tecnológicas para equipos e instituciones.",
+      "id": "gestion-comunidad",
+      "title": "Gestión de la Comunidad",
+      "category": "Social Media",
+      "badge": "Interacción & Bots",
+      "shortDescription": "Atención estratégica y rápida de comentarios y mensajes directos. Respuestas clave automáticas para resolver dudas frecuentes.",
       "features": [
-        "Talleres sobre Inteligencia Artificial aplicada",
-        "Capacitación en herramientas de comunicación digital",
-        "Cursos sobre competencia digital y uso seguro de la tecnología",
-        "Acompañamiento en la adopción de nuevas tecnologías"
+        "Atención estratégica de comentarios y DMs",
+        "Automatizaciones de respuestas clave al instante 24/7"
       ],
-      "icon": "graduation-cap",
-      "url": "servicios/index.html#capacitaciones-talleres"
+      "icon": "message-square",
+      "url": "servicios/index.html#gestion-comunidad"
+    },
+    {
+      "id": "presentacion-reportes",
+      "title": "Presentación de Reportes",
+      "category": "Análisis",
+      "badge": "Métricas & Estrategia",
+      "shortDescription": "Análisis y entrega periódica de métricas clave. Evaluamos el rendimiento de tus canales para tomar decisiones basadas en datos.",
+      "features": [
+        "Análisis y entrega de métricas clave",
+        "Evaluación de rendimiento para ajustar estrategia"
+      ],
+      "icon": "bar-chart-2",
+      "url": "servicios/index.html#presentacion-reportes"
     }
   ]
 }
