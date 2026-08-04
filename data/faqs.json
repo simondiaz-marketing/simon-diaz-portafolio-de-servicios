@@ -23,6 +23,10 @@
     {
       "question": "¿Hay un tiempo mínimo de contratación de Servicios?",
       "answer": "No exigimos contratos de permanencia a largo plazo. Recomendamos un mínimo de 3 meses para medir resultados reales y optimizar las estrategias, pero puedes ajustar o cancelar tu plan mes a mes con previo aviso."
+    },
+    {
+      "question": "¿Realizan asesoría personalizada de IA?",
+      "answer": "Sí, coordinamos sesiones individuales para analizar los procesos de tu negocio e implementar herramientas de Inteligencia Artificial que optimicen tu tiempo."
     }
   ]
 }
