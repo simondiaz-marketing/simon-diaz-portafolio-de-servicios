@@ -1,0 +1,62 @@
+backend:
+  name: github
+  repo: simondiaz-marketing/simon-diaz-portafolio-de-servicios
+  branch: main
+
+media_folder: "img"
+public_folder: "/img"
+
+collections:
+  - name: "configuracion_contenido"
+    label: "Gestión de Contenidos"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "data/services.json"
+        label: "Servicios Ofrecidos"
+        name: "services"
+        json_key: "services"
+        fields:
+          - label: "Servicios"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "ID Único (ej: marketing-digital)", name: "id", widget: "string" }
+              - { label: "Título del Servicio", name: "title", widget: "string" }
+              - { label: "Categoría", name: "category", widget: "string" }
+              - { label: "Etiqueta (Badge)", name: "badge", widget: "string" }
+              - { label: "Descripción Corta", name: "shortDescription", widget: "text" }
+              - { label: "Características/Prestaciones", name: "features", widget: "list", field: { label: "Característica", name: "feature", widget: "string" } }
+              - { label: "Icono Lucide (ej: trending-up, video, cpu, graduation-cap)", name: "icon", widget: "string" }
+              - { label: "URL de Anclaje (ej: servicios/index.html#marketing-digital)", name: "url", widget: "string" }
+
+      - file: "data/academic-posts.json"
+        label: "Artículos Académicos"
+        name: "academic_posts"
+        fields:
+          - label: "Artículos"
+            name: "posts"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "URL del Artículo (ej: proyectos/ejemplo.html)", name: "url", widget: "string" }
+              - { label: "Fecha (YYYY-MM-DD)", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "Descripción Corta", name: "description", widget: "text" }
+              - { label: "Tema/Materia", name: "subject", widget: "string" }
+
+      - file: "data/sources_youtube.json"
+        label: "Videos de YouTube"
+        name: "youtube_videos"
+        fields:
+          - label: "Videos"
+            name: "videos"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "ID del Video (ej: N6sGuI5by5w)", name: "id", widget: "string" }
+              - { label: "Título del Video", name: "title", widget: "string" }
+              - { label: "Tipo (dejar en 'youtube')", name: "type", widget: "hidden", default: "youtube" }
+              - { label: "Enlace URL (Opcional)", name: "url", widget: "string", required: false }
