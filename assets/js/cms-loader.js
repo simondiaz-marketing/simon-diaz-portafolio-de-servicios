@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const elements = document.querySelectorAll("[data-cms]");
-  if (elements.length === 0) return;
 
   const path = window.location.pathname;
   let sourceFile = "";
