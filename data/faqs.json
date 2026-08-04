@@ -23,6 +23,10 @@
     {
       "question": "¿Hay un tiempo mínimo de contratación de Servicios?",
       "answer": "No exigimos contratos de permanencia a largo plazo. Recomendamos un mínimo de 3 meses para medir resultados reales y optimizar las estrategias, pero puedes ajustar o cancelar tu plan mes a mes con previo aviso."
+    },
+    {
+      "question": "Esta es una pregunta",
+      "answer": "Esta es la respuesta"
     }
   ]
 }
