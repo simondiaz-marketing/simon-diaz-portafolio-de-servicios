@@ -33,31 +33,33 @@ collections:
               - { label: "Icono Lucide (ej: trending-up, video, cpu, graduation-cap)", name: "icon", widget: "string" }
               - { label: "URL de Anclaje (ej: servicios/index.html#marketing-digital)", name: "url", widget: "string" }
 
-      - file: "data/academic-posts.json"
-        label: "Artículos Académicos"
-        name: "academic_posts"
+      - file: "data/homepage.json"
+        label: "Página de Inicio (Textos)"
+        name: "homepage"
         fields:
-          - label: "Artículos"
-            name: "posts"
-            widget: "list"
-            summary: "{{fields.title}}"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "URL del Artículo (ej: proyectos/ejemplo.html)", name: "url", widget: "string" }
-              - { label: "Fecha (YYYY-MM-DD)", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
-              - { label: "Descripción Corta", name: "description", widget: "text" }
-              - { label: "Tema/Materia", name: "subject", widget: "string" }
+          - { label: "Título Principal", name: "hero_title", widget: "string" }
+          - { label: "Subtítulo Hero", name: "hero_subtitle", widget: "text" }
+          - { label: "Texto Botón Principal", name: "hero_cta_text", widget: "string" }
 
-      - file: "data/sources_youtube.json"
-        label: "Videos de YouTube"
-        name: "youtube_videos"
+      - file: "data/about.json"
+        label: "Sobre Mí (Biografía)"
+        name: "about"
         fields:
-          - label: "Videos"
-            name: "videos"
+          - { label: "Nombre", name: "title", widget: "string" }
+          - { label: "Párrafo Bio 1", name: "bio_p1", widget: "text" }
+          - { label: "Párrafo Bio 2", name: "bio_p2", widget: "text" }
+          - { label: "Párrafo Bio 3", name: "bio_p3", widget: "text" }
+          - { label: "Años de Experiencia", name: "experience_years", widget: "string" }
+          - { label: "Cantidad Certificaciones", name: "certifications_count", widget: "string" }
+
+      - file: "data/faqs.json"
+        label: "Preguntas Frecuentes (FAQs)"
+        name: "faqs"
+        fields:
+          - label: "Preguntas"
+            name: "faqs"
             widget: "list"
-            summary: "{{fields.title}}"
+            summary: "{{fields.question}}"
             fields:
-              - { label: "ID del Video (ej: N6sGuI5by5w)", name: "id", widget: "string" }
-              - { label: "Título del Video", name: "title", widget: "string" }
-              - { label: "Tipo (dejar en 'youtube')", name: "type", widget: "hidden", default: "youtube" }
-              - { label: "Enlace URL (Opcional)", name: "url", widget: "string", required: false }
+              - { label: "Pregunta", name: "question", widget: "string" }
+              - { label: "Respuesta", name: "answer", widget: "text" }
