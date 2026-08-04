@@ -89,19 +89,143 @@
         </div>
     </section>
 
-    <section style="padding: 5rem 0; background: rgba(17,21,25,0.5);">
+    <!-- SECCIÓN 2 — METODOLOGÍA DE TRABAJO -->
+    <style>
+        .step-card {
+            background: rgba(20, 26, 45, 0.4);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .step-card:hover {
+            border-color: rgba(163, 230, 53, 0.4);
+            box-shadow: 0 0 20px rgba(163, 230, 53, 0.06);
+            transform: translateY(-3px);
+            background: rgba(20, 26, 45, 0.6);
+        }
+        .step-card:hover .step-number {
+            color: rgba(163, 230, 53, 0.3) !important;
+            transform: scale(1.05);
+        }
+        .step-number {
+            font-family: var(--font-mono);
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: rgba(163, 230, 53, 0.1);
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            line-height: 1;
+            transition: all 0.3s ease;
+        }
+        .workflow-sequence span {
+            transition: color 0.3s ease;
+        }
+        .workflow-sequence span:hover {
+            color: var(--color-lime);
+        }
+    </style>
+
+    <section id="metodologia" style="padding: 6rem 0; background: rgba(17, 21, 25, 0.4); border-bottom: 1px solid var(--color-border);">
         <div class="container">
-            <div class="transformation-box" style="text-align: left;">
-                <div
-                    style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--color-lime); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.8rem;">
-                    Metodología de trabajo</div>
-                <h2 style="margin-bottom: 1rem;">
-                    Gestión integral de<br>
-                    <em>Ecosistemas Digitales</em>
+            <div style="margin-bottom: 4rem;">
+                <span class="service-badge" style="margin-bottom: 0.8rem;">Cómo trabajamos</span>
+                <h2 style="font-size: 2.5rem; margin-top: 0.5rem; margin-bottom: 1.2rem;">
+                    Metodología de Trabajo
                 </h2>
-                <p style="max-width: 720px; font-size: 1.05rem; color: var(--color-stone); line-height: 1.8;">
-                    Servicio pensado para marcas que buscan delegar la planificación, creación,
-                    publicación y seguimiento de sus contenidos en redes sociales.                    
+                <p style="max-width: 760px; font-size: 1.05rem; color: var(--color-stone); line-height: 1.8;">
+                    Un proceso estructurado en <strong>diagnóstico, estrategia y optimización continua</strong>. 
+                    Cada proyecto comienza entendiendo el negocio a fondo y se gestiona mediante decisiones basadas en datos. 
+                    La estrategia no es estática: se analiza, implementa y ajusta constantemente para maximizar resultados.
+                </p>
+            </div>
+
+            <!-- Grid de 7 Pasos -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+                
+                <!-- Paso 1 -->
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-white); margin-bottom: 0.8rem; padding-right: 2.5rem; font-weight: 400;">Diagnóstico inicial</h3>
+                    <p style="color: var(--color-stone); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                        Comenzamos con una llamada para conocer el negocio, sus objetivos, necesidades y situación actual. Esta instancia permite determinar si existe un encaje real entre el proyecto y nuestros servicios.
+                    </p>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-white); margin-bottom: 0.8rem; padding-right: 2.5rem; font-weight: 400;">Brief personalizado</h3>
+                    <p style="color: var(--color-stone); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                        Si existe compatibilidad, se envía un brief diseñado específicamente para recopilar información clave de la marca, público objetivo, metas comerciales, canales y principales desafíos.
+                    </p>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-white); margin-bottom: 0.8rem; padding-right: 2.5rem; font-weight: 400;">Investigación de mercado</h3>
+                    <p style="color: var(--color-stone); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                        Con los datos recolectados, realizamos una investigación enfocada en el contexto específico: analizamos competidores, tendencias y público objetivo para identificar oportunidades reales de posicionamiento.
+                    </p>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-white); margin-bottom: 0.8rem; padding-right: 2.5rem; font-weight: 400;">Estrategia de marketing</h3>
+                    <p style="color: var(--color-stone); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                        Desarrollamos una hoja de ruta con objetivos, canales y líneas temáticas concretas. Esta estrategia se plasma en un calendario editorial que organiza y da sentido a la comunicación del negocio.
+                    </p>
+                </div>
+
+                <!-- Paso 5 -->
+                <div class="step-card">
+                    <div class="step-number">05</div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-white); margin-bottom: 0.8rem; padding-right: 2.5rem; font-weight: 400;">Implementación &amp; Seguimiento</h3>
+                    <p style="color: var(--color-stone); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                        Ejecutamos la estrategia y realizamos un monitoreo constante del rendimiento de los contenidos y campañas. Identificamos qué funciona mejor y qué oportunidades surgen día a día.
+                    </p>
+                </div>
+
+                <!-- Paso 6 -->
+                <div class="step-card">
+                    <div class="step-number">06</div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-white); margin-bottom: 0.8rem; padding-right: 2.5rem; font-weight: 400;">Optimización mensual</h3>
+                    <p style="color: var(--color-stone); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                        La planificación es flexible. Cada mes analizamos métricas y, si los datos lo justifican, realizamos ajustes de formatos, frecuencia, canales o mensajes para mantenernos alineados al mercado.
+                    </p>
+                </div>
+
+                <!-- Paso 7 -->
+                <div class="step-card">
+                    <div class="step-number">07</div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-white); margin-bottom: 0.8rem; padding-right: 2.5rem; font-weight: 400;">Evaluación trimestral</h3>
+                    <p style="color: var(--color-stone); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                        Presentamos reportes detallados del trimestre que evalúan la evolución del ecosistema de la marca, extraen aprendizajes clave y definen la dirección estratégica del siguiente período.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Workflow Loop Banner -->
+            <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--color-border); border-radius: 16px; padding: 2.5rem; text-align: center;">
+                <h4 style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-lime); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;">Un proceso continuo</h4>
+                <div class="workflow-sequence" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.8rem 1.2rem; font-family: var(--font-display); font-size: 1.05rem; color: var(--color-white); font-weight: 400;">
+                    <span>Diagnosticar</span> <span style="opacity: 0.3; font-family: var(--font-mono);">→</span>
+                    <span>Investigar</span> <span style="opacity: 0.3; font-family: var(--font-mono);">→</span>
+                    <span>Estrategizar</span> <span style="opacity: 0.3; font-family: var(--font-mono);">→</span>
+                    <span>Implementar</span> <span style="opacity: 0.3; font-family: var(--font-mono);">→</span>
+                    <span>Analizar</span> <span style="opacity: 0.3; font-family: var(--font-mono);">→</span>
+                    <span>Optimizar</span> <span style="opacity: 0.3; font-family: var(--font-mono);">→</span>
+                    <span>Evaluar</span>
+                </div>
+                <p style="color: var(--color-stone); font-size: 0.9rem; margin-top: 1.8rem; margin-bottom: 0; max-width: 650px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                    Combinamos planificación con adaptabilidad: se parte de una estrategia estructurada, pero las decisiones de campaña y contenido se refinan basándose en el comportamiento real de tu audiencia.
                 </p>
             </div>
         </div>
