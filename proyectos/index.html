@@ -114,12 +114,13 @@
         
         @media (max-width: 768px) {
             .project-row {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
                 gap: 2rem;
                 padding: 3rem 0;
             }
-            .project-row.alternate .project-info {
-                order: -1; /* Keep text on top on mobile */
+            .project-row.alternate .carousel-container {
+                order: -1; /* Muestra la imagen arriba del texto en móviles */
             }
         }
     </style>
