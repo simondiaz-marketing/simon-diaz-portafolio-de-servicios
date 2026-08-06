@@ -395,7 +395,7 @@ section {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 2.5rem;
+    margin-top: 0;
     padding: 0.85rem 2rem;
     font-family: var(--font-mono);
     font-size: 0.82rem;
@@ -421,7 +421,7 @@ section {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 2.5rem;
+    margin-top: 0;
     padding: 0.85rem 2rem;
     font-family: var(--font-mono);
     font-size: 0.82rem;
@@ -573,7 +573,7 @@ footer a:hover {
 .hero-inner {
     position: relative;
     z-index: 2;
-    padding: 5rem 0 4rem;
+    padding: 2.5rem 0 2rem;
     max-width: 760px;
 }
 
@@ -583,7 +583,7 @@ footer a:hover {
     letter-spacing: 2.5px;
     text-transform: uppercase;
     color: var(--color-lime);
-    margin-bottom: 1.8rem;
+    margin-bottom: 1rem;
     display: inline-block;
     opacity: 0.85;
 }
@@ -592,7 +592,7 @@ footer a:hover {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
 }
 
 /* Responsive Design */
