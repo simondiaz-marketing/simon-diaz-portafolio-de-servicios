@@ -16,302 +16,7 @@
 
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
-
-    <style>
-        /* Specific Styles for Interactive Multi-Step Brief */
-        .brief-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(14, 18, 30, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--color-border);
-            border-radius: 20px;
-            padding: 3rem 2.5rem;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .brief-container::before {
-            content: '';
-            position: absolute;
-            top: -150px;
-            right: -150px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* Progress Steps */
-        .progress-bar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 3.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .progress-line-background {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateY(-50%);
-            z-index: 1;
-        }
-
-        .progress-line-fill {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--color-purple), var(--color-lime));
-            transform: translateY(-50%);
-            z-index: 2;
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .step-node {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: var(--color-ink);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--color-stone);
-            z-index: 3;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 0 0 4px var(--color-ink);
-        }
-
-        .step-node.active {
-            border-color: var(--color-lime);
-            color: var(--color-white);
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3), 0 0 0 4px var(--color-ink);
-        }
-
-        .step-node.completed {
-            border-color: var(--color-purple);
-            background: var(--color-purple);
-            color: var(--color-white);
-            box-shadow: 0 0 15px rgba(139, 92, 246, 0.3), 0 0 0 4px var(--color-ink);
-        }
-
-        /* Steps Content */
-        .brief-step {
-            display: none;
-            animation: slideFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            position: relative;
-            z-index: 1;
-        }
-
-        .brief-step.active {
-            display: block;
-        }
-
-        @keyframes slideFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .step-title-area {
-            margin-bottom: 2.2rem;
-        }
-
-        .step-title-area h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--color-white);
-            margin-bottom: 0.5rem;
-            text-align: left;
-        }
-
-        .step-title-area p {
-            color: var(--color-stone);
-            font-size: 0.95rem;
-        }
-
-        /* Form elements */
-        .form-group {
-            margin-bottom: 1.8rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--color-stone);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 0.65rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 1rem 1.2rem;
-            border-radius: 10px;
-            background: rgba(7, 9, 14, 0.6);
-            border: 1px solid var(--color-border);
-            color: var(--color-white);
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            outline: none;
-            transition: all 0.25s ease;
-            box-sizing: border-box;
-        }
-
-        .form-control:focus {
-            border-color: var(--color-lime);
-            background: rgba(7, 9, 14, 0.9);
-            box-shadow: 0 0 12px rgba(16, 185, 129, 0.1);
-        }
-
-        select.form-control {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 1.2rem center;
-            background-size: 1rem;
-            padding-right: 3rem;
-        }
-
-        .grid-2col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        /* Checkbox grid for services */
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        .option-card {
-            position: relative;
-            background: rgba(7, 9, 14, 0.4);
-            border: 1px solid var(--color-border);
-            border-radius: 10px;
-            padding: 1.2rem;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-        }
-
-        .option-card:hover {
-            border-color: rgba(16, 185, 129, 0.3);
-            background: rgba(7, 9, 14, 0.6);
-        }
-
-        .option-card.selected {
-            border-color: var(--color-lime);
-            background: rgba(16, 185, 129, 0.05);
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.08);
-        }
-
-        .option-card input[type="checkbox"] {
-            margin-top: 0.25rem;
-            accent-color: var(--color-lime);
-            cursor: pointer;
-        }
-
-        .option-card-content span {
-            display: block;
-            font-size: 0.92rem;
-            font-weight: 600;
-            color: var(--color-white);
-            margin-bottom: 0.2rem;
-        }
-
-        .option-card-content p {
-            font-size: 0.78rem;
-            color: var(--color-stone);
-            line-height: 1.4;
-        }
-
-        /* Buttons navigation */
-        .brief-nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            position: relative;
-            z-index: 1;
-        }
-
-        .brief-nav-buttons button {
-            margin-top: 0;
-        }
-
-        /* Success screen styling */
-        .success-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .action-box {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--color-border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.25s ease;
-        }
-
-        .action-box:hover {
-            border-color: rgba(16, 185, 129, 0.2);
-            background: rgba(255, 255, 255, 0.03);
-        }
-
-        @media (max-width: 768px) {
-            .brief-container {
-                padding: 2rem 1.5rem;
-            }
-
-            .grid-2col {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-
-            .progress-bar-container {
-                margin-bottom: 2.5rem;
-            }
-
-            .step-node {
-                width: 36px;
-                height: 36px;
-                font-size: 0.8rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="brief.css">
 </head>
 
 <body>
@@ -355,15 +60,16 @@
                     <div class="step-node" data-step="2">2</div>
                     <div class="step-node" data-step="3">3</div>
                     <div class="step-node" data-step="4">4</div>
+                    <div class="step-node" data-step="5">5</div>
                 </div>
 
                 <form id="brief-form" onsubmit="handleBriefSubmit(event)">
 
-                    <!-- STEP 1: INFORMACIÓN GENERAL -->
+                    <!-- STEP 1: NEGOCIO Y PROPUESTA DE VALOR -->
                     <div class="brief-step active" id="step-1">
                         <div class="step-title-area">
-                            <h2>1. Información General</h2>
-                            <p>Contanos las bases sobre tu marca o negocio actual.</p>
+                            <h2>1. Negocio y Propuesta de Valor</h2>
+                            <p>Contanos las bases comerciales y operativas de tu marca.</p>
                         </div>
 
                         <div class="grid-2col">
@@ -379,6 +85,19 @@
                             </div>
                         </div>
 
+                        <div class="grid-2col">
+                            <div class="form-group">
+                                <label for="brand-years">¿Cuánto tiempo lleva funcionando? *</label>
+                                <input type="text" id="brand-years" class="form-control"
+                                    placeholder="Ej. Lanzamiento nuevo, 2 años de trayectoria, más de 5 años..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="brand-location">¿Dónde opera actualmente? *</label>
+                                <input type="text" id="brand-location" class="form-control"
+                                    placeholder="Ej. Posadas, Misiones (Local físico y envíos a la provincia)" required>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label for="brand-channels">Sitio Web / Redes Sociales Actuales</label>
                             <input type="text" id="brand-channels" class="form-control"
@@ -387,13 +106,21 @@
 
                         <div class="form-group">
                             <label for="brand-description">¿A qué se dedica principalmente la marca? *</label>
-                            <textarea id="brand-description" class="form-control" rows="3"
-                                placeholder="Contanos brevemente qué productos o servicios ofrecen..."
+                            <textarea id="brand-description" class="form-control" rows="4"
+                                placeholder="Ej.: Somos una cafetería de especialidad en Posadas. Ofrecemos café de origen preparado en el local, pastelería artesanal, desayunos y café en grano para llevar. Nuestro espacio está pensado para personas que buscan disfrutar un buen café, reunirse o trabajar en un ambiente tranquilo."
                                 required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="brand-products">Productos principales y Foco comercial *</label>
+                            <textarea id="brand-products" class="form-control" rows="4"
+                                placeholder="Ej.: El 80% de nuestra facturación actual proviene de los desayunos y la cafetería en el local. Sin embargo, queremos potenciar la venta de café de especialidad en grano/molido para llevar y el servicio de catering para eventos corporativos."
+                                required></textarea>
+                            <small class="field-help">Especificá cuál es tu producto estrella actual (el que más se vende) y cuál te interesa impulsar comercialmente en esta etapa.</small>
                         </div>
                     </div>
 
-                    <!-- STEP 2: ADN DE MARCA -->
+                    <!-- STEP 2: IDENTIDAD Y ADN DE MARCA -->
                     <div class="brief-step" id="step-2">
                         <div class="step-title-area">
                             <h2>2. Identidad y ADN de la Marca</h2>
@@ -403,65 +130,97 @@
                         <div class="form-group">
                             <label for="brand-values">¿Cuáles son los valores principales de tu marca? *</label>
                             <input type="text" id="brand-values" class="form-control"
-                                placeholder="Ej. Sustentabilidad, calidez, innovación, tradición..." required>
+                                placeholder="Ej. Sustentabilidad, calidez en el trato, innovación constante, tradición familiar..." required>
                         </div>
 
                         <div class="form-group">
                             <label for="brand-tone">Tono de voz en la comunicación *</label>
                             <select id="brand-tone" class="form-control" required>
                                 <option value="" disabled selected>Seleccioná el tono predominante...</option>
-                                <option value="Cercano y Amigable">Cercano y Amigable (Conversacional, empático)
-                                </option>
-                                <option value="Formal e Institucional">Formal e Institucional (Profesional, sobrio)
-                                </option>
-                                <option value="Educativo e Informativo">Educativo e Informativo (Explicativo, técnico)
-                                </option>
-                                <option value="Disruptivo e Inspirador">Disruptivo e Inspirador (Enérgico, moderno,
-                                    creativo)</option>
+                                <option value="Cercano y Amigable">Cercano y Amigable (Conversacional, empático, cercano)</option>
+                                <option value="Formal e Institucional">Formal e Institucional (Profesional, sobrio, corporativo)</option>
+                                <option value="Educativo e Informativo">Educativo e Informativo (Explicativo, técnico, pedagógico)</option>
+                                <option value="Disruptivo e Inspirador">Disruptivo e Inspirador (Enérgico, moderno, creativo)</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="brand-differentiator">¿Qué te diferencia de otras marcas? (Tu valor único)
-                                *</label>
-                            <textarea id="brand-differentiator" class="form-control" rows="3"
-                                placeholder="¿Por qué te eligen los clientes por encima de tu competencia?..."
+                            <label for="brand-differentiator">¿Qué te diferencia de otras marcas? (Tu valor único) *</label>
+                            <textarea id="brand-differentiator" class="form-control" rows="4"
+                                placeholder="Ej.: No solo servimos café, sino que tostamos nuestros propios granos en Posadas y capacitamos activamente al cliente. Además, diseñamos un espacio libre de ruidos con Wi-Fi corporativo especialmente pensado para profesionales independientes."
                                 required></textarea>
+                            <small class="field-help">¿Por qué te eligen los clientes por encima de tu competencia directa? Detallá lo que considerás que te hace único.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="brand-avoid">Estilos o temáticas a evitar</label>
+                            <textarea id="brand-avoid" class="form-control" rows="3"
+                                placeholder="Ej.: Queremos evitar el humor absurdo o memes virales del momento que no tengan que ver con café. Tampoco queremos utilizar un lenguaje excesivamente técnico que aleje a personas que recién se inician en el mundo del café de especialidad."></textarea>
+                            <small class="field-help">Si hay tonos, modismos, colores o temáticas con las que no te sentís cómodo/a para tu marca, indicalas acá.</small>
                         </div>
                     </div>
 
-                    <!-- STEP 3: AUDIENCIA Y COMPETENCIA -->
+                    <!-- STEP 3: AUDIENCIA Y VENTAS -->
                     <div class="brief-step" id="step-3">
                         <div class="step-title-area">
-                            <h2>3. Audiencia y Entorno</h2>
-                            <p>Entendamos a quién le hablamos y con quién compartimos mercado.</p>
+                            <h2>3. Audiencia y Proceso de Ventas</h2>
+                            <p>Entendamos a quién le hablamos y cómo interactúan comercialmente.</p>
                         </div>
 
                         <div class="form-group">
                             <label for="brand-audience">¿Quién es tu cliente ideal? *</label>
-                            <textarea id="brand-audience" class="form-control" rows="3"
-                                placeholder="Rango de edad, intereses, estilo de vida, necesidades..."
+                            <textarea id="brand-audience" class="form-control" rows="4"
+                                placeholder="Ej.: Personas de 25 a 45 años que viven en Posadas, principalmente profesionales independientes, emprendedores y estudiantes de posgrado. Valoran el tiempo, buscan un lugar tranquilo para trabajar fuera de casa y utilizan Instagram para descubrir recomendaciones locales."
                                 required></textarea>
+                            <small class="field-help">Describí al público al que apuntás: rango de edad, intereses, estilo de vida y qué necesidades resuelve tu negocio para ellos.</small>
                         </div>
 
                         <div class="form-group">
-                            <label for="brand-competitors">¿Quiénes son tus principales competidores? *</label>
-                            <input type="text" id="brand-competitors" class="form-control"
-                                placeholder="Nombres o cuentas de Instagram de marcas similares..." required>
+                            <label for="brand-objections">Dudas u Objeciones más frecuentes *</label>
+                            <textarea id="brand-objections" class="form-control" rows="4"
+                                placeholder="Ej.: Preguntan mucho si tenemos opciones aptas para celíacos o veganas, si contamos con estacionamiento propio, o si vendemos el café en grano ya molido para cafeteras específicas (italiana, prensa francesa)."
+                                required></textarea>
+                            <small class="field-help">¿Qué dudas, barreras o temores plantean las personas antes de decidir comprarte o contratarte?</small>
                         </div>
 
                         <div class="form-group">
-                            <label for="brand-inspiration">Referencias visuales o de comunicación que te gusten</label>
-                            <input type="text" id="brand-inspiration" class="form-control"
-                                placeholder="Marcas referentes locales o internacionales que te inspiren">
+                            <label for="brand-sales-channels">Canales de venta y proceso comercial *</label>
+                            <textarea id="brand-sales-channels" class="form-control" rows="4"
+                                placeholder="Ej.: El 90% de las ventas son presenciales en la cafetería. El 10% restante nos consulta por mensajes directos de Instagram y coordinamos pedidos de café en grano para retirar en el local. Cobramos principalmente por Mercado Pago y efectivo."
+                                required></textarea>
+                            <small class="field-help">¿Por qué medios vendés actualmente y cómo es el recorrido del cliente desde que te descubre hasta que paga? Indicá dónde creés que se pierden oportunidades.</small>
                         </div>
                     </div>
 
-                    <!-- STEP 4: SERVICIOS Y OBJETIVOS -->
+                    <!-- STEP 4: MARKETING Y RECURSOS -->
                     <div class="brief-step" id="step-4">
                         <div class="step-title-area">
-                            <h2>4. Objetivos y Servicios</h2>
-                            <p>Definamos qué metas tenés y qué servicios te interesan.</p>
+                            <h2>4. Acciones de Marketing y Recursos</h2>
+                            <p>Analicemos lo que venís haciendo y tus herramientas de producción.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="brand-marketing-history">Historial de acciones de marketing *</label>
+                            <textarea id="brand-marketing-history" class="form-control" rows="4"
+                                placeholder="Ej.: Publicamos fotos del menú semanal en Instagram y pagamos pauta local en Meta Ads enfocados en Posadas Centro. Las fotos del local con clientes y la pauta segmentada funcionaron muy bien. Lo que falló fue realizar sorteos masivos porque solo trajeron seguidores inactivos."
+                                required></textarea>
+                            <small class="field-help">¿Qué canales o acciones utilizás actualmente para darte a conocer? Detallá qué considerás que te funcionó y qué acciones probaste que fallaron.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="brand-content-resources">Recursos y capacidad para crear contenido *</label>
+                            <textarea id="brand-content-resources" class="form-control" rows="4"
+                                placeholder="Ej.: Yo (dueño) me encargo de tomar fotos y pequeños videos con mi teléfono (iPhone 13). Dispongo de unas 3 horas semanales. Mi socia está dispuesta a aparecer en cámara para explicar la preparación de bebidas o recetas especiales. No tenemos micrófonos profesionales."
+                                required></textarea>
+                            <small class="field-help">Detallá quién se encargará de crear los contenidos físicos, si hay alguien dispuesto a hablar frente a la cámara, qué equipamiento tienen (móvil, luces) y cuánto tiempo semanal disponen.</small>
+                        </div>
+                    </div>
+
+                    <!-- STEP 5: OBJETIVOS Y COMPETENCIA -->
+                    <div class="brief-step" id="step-5">
+                        <div class="step-title-area">
+                            <h2>5. Objetivos, Competencia y Expectativas</h2>
+                            <p>Fijemos las metas prioritarias y el mapa competitivo del proyecto.</p>
                         </div>
 
                         <div class="form-group">
@@ -491,40 +250,49 @@
                                         <p>Campañas de pauta publicitaria en Meta Ads / Google Ads.</p>
                                     </div>
                                 </div>
-                                <div class="option-card" onclick="toggleOptionCard(this)">
-                                    <input type="checkbox" name="services" value="Asesoría de Estrategia"
-                                        onclick="event.stopPropagation()">
-                                    <div class="option-card-content">
-                                        <span>Consultoría / Asesoría</span>
-                                        <p>Análisis y mentoría uno a uno de tu presencia digital.</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="brand-objectives">¿Cuál es el objetivo principal a corto plazo? *</label>
+                            <label for="brand-objectives">¿Cuál es tu objetivo principal a corto plazo? *</label>
                             <select id="brand-objectives" class="form-control" required>
                                 <option value="" disabled selected>Seleccioná tu prioridad principal...</option>
-                                <option value="Aumentar ventas / conseguir leads">Aumentar ventas / conseguir leads de
-                                    calidad</option>
-                                <option value="Ganar visibilidad de marca y comunidad">Ganar visibilidad de marca y
-                                    comunidad</option>
-                                <option value="Profesionalizar la estética del perfil">Profesionalizar la estética
-                                    visual del perfil</option>
-                                <option value="Lanzar un nuevo producto o servicio">Lanzar un nuevo producto o servicio
-                                    al mercado</option>
+                                <option value="Aumentar ventas / conseguir leads">Aumentar ventas / conseguir leads de calidad</option>
+                                <option value="Ganar visibilidad de marca y comunidad">Ganar visibilidad de marca y comunidad</option>
+                                <option value="Profesionalizar la estética del perfil">Profesionalizar la estética visual del perfil</option>
+                                <option value="Lanzar un nuevo producto o servicio">Lanzar un nuevo producto o servicio al mercado</option>
                             </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="brand-competitors">¿Quiénes son tus principales competidores? *</label>
+                            <input type="text" id="brand-competitors" class="form-control"
+                                placeholder="Ej.: Café Duomo, Bacanal Café (Posadas), y marca referente de BsAs como Ninina." required>
+                            <small class="field-help">Colocá nombres o usuarios de Instagram de marcas similares a nivel local y referentes nacionales.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="brand-dates">¿Existen lanzamientos, fechas o campañas importantes en camino?</label>
+                            <input type="text" id="brand-dates" class="form-control"
+                                placeholder="Ej.: Lanzamos packs navideños en diciembre; cumplimos nuestro primer aniversario en octubre.">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="brand-success-metric">¿Qué significa para vos que este proyecto sea un éxito? *</label>
+                            <textarea id="brand-success-metric" class="form-control" rows="3"
+                                placeholder="Ej.: Lograr delegar la planificación y diseño del contenido con confianza para enfocarme en el negocio, conseguir que al menos el 25% de las consultas en Instagram terminen en compras, y reflejar una imagen profesional a la par de las mejores cafeterías del país."
+                                required></textarea>
+                            <small class="field-help">Definí con tus palabras cuáles son tus expectativas reales sobre el resultado de nuestro trabajo conjunto.</small>
                         </div>
 
                         <div class="form-group">
                             <label for="brand-extra">Detalles o comentarios adicionales</label>
                             <textarea id="brand-extra" class="form-control" rows="2"
-                                placeholder="Cualquier otra información relevante..."></textarea>
+                                placeholder="Cualquier otra información o detalle estratégico que no hayamos tocado..."></textarea>
                         </div>
                     </div>
 
-                    <!-- STEP 5: PÁGINA DE ÉXITO (DENTRO DEL BRIEF CARD) -->
+                    <!-- STEP SUCCESS: PÁGINA DE ÉXITO (DENTRO DEL BRIEF CARD) -->
                     <div class="brief-step" id="step-success">
                         <div class="step-title-area" style="text-align: center; margin-bottom: 2.5rem;">
                             <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">✨</span>
@@ -566,11 +334,9 @@
                         <button type="button" class="cta-button-secondary" id="prev-btn" onclick="changeStep(-1)"
                             style="display: none; opacity: 0.6;">← Atrás</button>
                         <div style="flex-grow: 1;"></div>
-                        <button type="button" class="cta-button" id="next-btn" onclick="changeStep(1)">Siguiente
-                            →</button>
+                        <button type="button" class="cta-button" id="next-btn" onclick="changeStep(1)">Siguiente →</button>
                         <button type="submit" class="cta-button" id="submit-btn"
-                            style="display: none; background: linear-gradient(135deg, var(--color-purple), var(--color-lime)); border: none;">Finalizar
-                            Brief</button>
+                            style="display: none; background: linear-gradient(135deg, var(--color-purple), var(--color-lime)); border: none;">Finalizar Brief</button>
                     </div>
 
                 </form>
@@ -600,7 +366,7 @@
         const WEBHOOK_URL = "https://hook.us2.make.com/hmm8izkktulbw7p95c69trbwowb57825";
 
         let currentStep = 1;
-        const totalSteps = 4;
+        const totalSteps = 5;
 
         // Update steps progress bar and content
         function updateStepUI() {
@@ -701,15 +467,28 @@
         function generateBriefText() {
             const brandName = document.getElementById('brand-name').value;
             const brandSector = document.getElementById('brand-sector').value;
+            const brandYears = document.getElementById('brand-years').value;
+            const brandLocation = document.getElementById('brand-location').value;
             const brandChannels = document.getElementById('brand-channels').value || 'No provisto';
             const brandDesc = document.getElementById('brand-description').value;
+            const brandProducts = document.getElementById('brand-products').value;
+            
             const brandValues = document.getElementById('brand-values').value;
             const brandTone = document.getElementById('brand-tone').value;
             const brandDiff = document.getElementById('brand-differentiator').value;
+            const brandAvoid = document.getElementById('brand-avoid').value || 'No provisto';
+
             const brandAudience = document.getElementById('brand-audience').value;
-            const brandCompetitors = document.getElementById('brand-competitors').value;
-            const brandInspiration = document.getElementById('brand-inspiration').value || 'No provisto';
+            const brandObjections = document.getElementById('brand-objections').value;
+            const brandSalesChannels = document.getElementById('brand-sales-channels').value;
+
+            const brandMarketingHistory = document.getElementById('brand-marketing-history').value;
+            const brandContentResources = document.getElementById('brand-content-resources').value;
+
             const brandObjectives = document.getElementById('brand-objectives').value;
+            const brandCompetitors = document.getElementById('brand-competitors').value;
+            const brandDates = document.getElementById('brand-dates').value || 'No provisto';
+            const brandSuccessMetric = document.getElementById('brand-success-metric').value;
             const brandExtra = document.getElementById('brand-extra').value || 'Sin comentarios adicionales';
 
             const selectedServices = [];
@@ -722,29 +501,41 @@
 📝 BRIEF DE MARCA - SIMÓN DIAZ
 ==========================================
 
-1. INFORMACIÓN GENERAL
+1. NEGOCIO Y PROPUESTA DE VALOR
 ------------------------------------------
 • Nombre de la Marca: ${brandName}
 • Sector / Rubro: ${brandSector}
-• Canales / Redes: ${brandChannels}
+• Trayectoria / Años: ${brandYears}
+• Ubicación / Operación: ${brandLocation}
+• Canales / Redes Actuales: ${brandChannels}
 • Descripción del Negocio: ${brandDesc}
+• Productos y Foco Comercial: ${brandProducts}
 
 2. ADN Y IDENTIDAD DE MARCA
 ------------------------------------------
 • Valores Principales: ${brandValues}
 • Tono de Voz: ${brandTone}
-• Valor Diferencial: ${brandDiff}
+• Valor Diferencial (Diferenciador): ${brandDiff}
+• Estilos o Temáticas a Evitar: ${brandAvoid}
 
-3. AUDIENCIA Y ENTORNO
+3. AUDIENCIA Y VENTAS
 ------------------------------------------
 • Cliente Ideal: ${brandAudience}
-• Competidores Clave: ${brandCompetitors}
-• Referencias / Inspiración: ${brandInspiration}
+• Objeciones Comunes: ${brandObjections}
+• Canales y Proceso de Ventas: ${brandSalesChannels}
 
-4. OBJETIVOS Y SERVICIOS
+4. MARKETING Y RECURSOS
+------------------------------------------
+• Historial y Acciones de Marketing: ${brandMarketingHistory}
+• Recursos y Capacidad de Contenidos: ${brandContentResources}
+
+5. OBJETIVOS Y COMPETENCIA
 ------------------------------------------
 • Servicios de Interés: ${servicesText}
-• Objetivo Principal: ${brandObjectives}
+• Prioridad Principal a Corto Plazo: ${brandObjectives}
+• Competidores Principales: ${brandCompetitors}
+• Fechas / Lanzamientos Importantes: ${brandDates}
+• Definición de Éxito del Proyecto: ${brandSuccessMetric}
 • Detalles Adicionales: ${brandExtra}
 
 ==========================================
@@ -788,15 +579,24 @@ Generado desde: simondiaz.marketing/brief`;
             const payload = {
                 brandName: document.getElementById('brand-name').value,
                 brandSector: document.getElementById('brand-sector').value,
+                brandYears: document.getElementById('brand-years').value,
+                brandLocation: document.getElementById('brand-location').value,
                 brandChannels: document.getElementById('brand-channels').value || '',
                 brandDescription: document.getElementById('brand-description').value,
+                brandProducts: document.getElementById('brand-products').value,
                 brandValues: document.getElementById('brand-values').value,
                 brandTone: document.getElementById('brand-tone').value,
                 brandDifferentiator: document.getElementById('brand-differentiator').value,
+                brandAvoid: document.getElementById('brand-avoid').value || '',
                 brandAudience: document.getElementById('brand-audience').value,
-                brandCompetitors: document.getElementById('brand-competitors').value,
-                brandInspiration: document.getElementById('brand-inspiration').value || '',
+                brandObjections: document.getElementById('brand-objections').value,
+                brandSalesChannels: document.getElementById('brand-sales-channels').value,
+                brandMarketingHistory: document.getElementById('brand-marketing-history').value,
+                brandContentResources: document.getElementById('brand-content-resources').value,
                 brandObjectives: document.getElementById('brand-objectives').value,
+                brandCompetitors: document.getElementById('brand-competitors').value,
+                brandDates: document.getElementById('brand-dates').value || '',
+                brandSuccessMetric: document.getElementById('brand-success-metric').value,
                 brandExtra: document.getElementById('brand-extra').value || '',
                 selectedServices: selectedServices
             };
